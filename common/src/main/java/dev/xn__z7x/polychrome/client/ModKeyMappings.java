@@ -8,17 +8,17 @@ import dev.xn__z7x.polychrome.Polychrome;
 
 import static dev.xn__z7x.polychrome.Polychrome.id;
 
-public class ModKeyMappings {
+public class ModKeyMappings{
 
-    public static ManagedKeyMapping yourKey;
+  public static ManagedKeyMapping yourKey;
 
-    public static void initialize() {
-        yourKey = Kuma.createKeyMapping(id("your_key"))
-                .withDefault(InputBinding.key(InputConstants.KEY_B))
-                .handleScreenInput(event -> {
-                    Polychrome.logger.info("B was pressed - " + Polychrome.MOD_ID);
-                    return true;
-                })
-                .build();
-    }
+  public static void initialize(){
+    yourKey = Kuma.createKeyMapping(id("your_key"))
+      .withDefault(InputBinding.key(InputConstants.KEY_B))
+      .handleScreenInput(event -> {
+        Polychrome.logger.info("B was pressed - " + Polychrome.MOD_ID);
+        return true;
+      })
+      .build();
+  }
 }

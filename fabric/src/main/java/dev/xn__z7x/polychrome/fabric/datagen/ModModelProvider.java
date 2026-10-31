@@ -8,19 +8,19 @@ import net.minecraft.data.models.model.ModelTemplates;
 import dev.xn__z7x.polychrome.block.ModBlocks;
 import dev.xn__z7x.polychrome.item.ModItems;
 
-public class ModModelProvider extends FabricModelProvider {
-    public ModModelProvider(FabricDataOutput output) {
-        super(output);
-    }
+public class ModModelProvider extends FabricModelProvider{
+  public ModModelProvider(FabricDataOutput output){
+    super(output);
+  }
 
-    @Override
-    public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
-        blockStateModelGenerator.createGenericCube(ModBlocks.yourBlock.asBlock());
-    }
+  @Override
+  public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator){
+    blockStateModelGenerator.createGenericCube(ModBlocks.yourBlock.asBlock());
+  }
 
-    @Override
-    public void generateItemModels(ItemModelGenerators itemModelGenerator) {
-        itemModelGenerator.generateFlatItem(ModItems.yourItem.asItem(), ModelTemplates.FLAT_ITEM);
-    }
+  @Override
+  public void generateItemModels(ItemModelGenerators itemModelGenerator){
+    itemModelGenerator.generateFlatItem(ModItems.yourItem.asItem(), ModelTemplates.FLAT_ITEM);
+  }
 
 }

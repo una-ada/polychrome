@@ -6,6 +6,6 @@ import net.minecraft.world.level.block.Block;
 
 import static dev.xn__z7x.polychrome.Polychrome.id;
 
-public class ModBlockTags {
-    public static final TagKey<Block> YOUR_TAG = TagKey.create(Registries.BLOCK, id("your_tag"));
+public class ModBlockTags{
+  public static final TagKey<Block> YOUR_TAG = TagKey.create(Registries.BLOCK, id("your_tag"));
 }

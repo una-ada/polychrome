@@ -9,10 +9,10 @@ import dev.xn__z7x.polychrome.Polychrome;
 import dev.xn__z7x.polychrome.client.PolychromeClient;
 
 @Mod(value = Polychrome.MOD_ID, dist = Dist.CLIENT)
-public class NeoForgePolychromeClient {
+public class NeoForgePolychromeClient{
 
-    public NeoForgePolychromeClient(IEventBus modEventBus) {
-        final var context = new NeoForgeLoadContext(modEventBus);
-        BalmClient.initializeMod(Polychrome.MOD_ID, context, PolychromeClient::initialize);
-    }
+  public NeoForgePolychromeClient(IEventBus modEventBus){
+    final var context = new NeoForgeLoadContext(modEventBus);
+    BalmClient.initializeMod(Polychrome.MOD_ID, context, PolychromeClient::initialize);
+  }
 }

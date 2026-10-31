@@ -8,13 +8,13 @@ import dev.xn__z7x.polychrome.tag.ModItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
-    public ModItemTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
-        super(output, registriesFuture);
-    }
+public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider{
+  public ModItemTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture){
+    super(output, registriesFuture);
+  }
 
-    @Override
-    protected void addTags(HolderLookup.Provider lookup) {
-        getOrCreateTagBuilder(ModItemTags.YOUR_TAG).add(ModItems.yourItem.asItem());
-    }
+  @Override
+  protected void addTags(HolderLookup.Provider lookup){
+    getOrCreateTagBuilder(ModItemTags.YOUR_TAG).add(ModItems.yourItem.asItem());
+  }
 }

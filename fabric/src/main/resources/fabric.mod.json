@@ -24,6 +24,9 @@
     ],
     "client": [
       "dev.xn__z7x.polychrome.fabric.client.FabricPolychromeClient"
+    ],
+    "fabric-datagen": [
+      "dev.xn__z7x.polychrome.fabric.datagen.ModDataGenerator"
     ]
   },
   "mixins": [

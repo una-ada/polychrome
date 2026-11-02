@@ -1,17 +1,16 @@
 # Polychrome \[NeoForge/Fabric 1.21.1\]
 
-Polychrome is a Minecraft mod for historic architectural styles.
+A Minecraft mod for historic architecture.
 
-## Styles
+## Blocks
 
 Material key: `Au` Gold, `Cn` Concrete, `Cu` Copper, `Pc` Polychrome,
 `St` Stone Varieties (`andesite`, `stone`, `tuff`, `deepslate`, `sandstone`,
 and `quartz`), `Wd` Wood Varieties (`birch`, `oak`, `spruce`, `dark_oak`,
 `mangrove`, and `cherry`).
 
-Progress key: `Mo` Model, `UV` UV mapping, `Cl` Class, `Tx` Texture(s).
-
-### Generic
+Progress key: `Mo` Model, `UV` UV mapping, `Cl` Class, `Tx` Texture(s),
+`X` Fully implemented.
 
 ```
 GENERIC

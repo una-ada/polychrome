@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model":  "polychrome:block/stone_persian_bracket_bull"},
+    "facing=east": { "model":  "polychrome:block/stone_persian_bracket_bull", "y": 90},
+    "facing=south": { "model":  "polychrome:block/stone_persian_bracket_bull", "y": 180},
+    "facing=west": { "model":  "polychrome:block/stone_persian_bracket_bull", "y":  270}
+  }
+}

@@ -11,19 +11,18 @@ import dev.xn__z7x.polychrome.Polychrome;
 import static dev.xn__z7x.polychrome.Polychrome.id;
 
 public class ModItems{
-  public static DeferredItem yourItem;
 
   public static void initialize(BalmItemRegistrar items){
-    yourItem = items.register("your_item", Item::new).asDeferredItem();
+
   }
 
   public static void initialize(BalmCreativeModeTabRegistrar creativeModeTabs){
     creativeModeTabs.register(Polychrome.MOD_ID, builder ->
       builder.title(Component.translatable(id(Polychrome.MOD_ID).toLanguageKey("itemGroup")))
-        .icon(() -> ModItems.yourItem.createStack())
+        .icon(() -> ModBlocks.quartzPersianVolute.createStack())
         .displayItems((displayParameters, output) -> {
-          output.accept(ModItems.yourItem);
           output.accept(ModBlocks.quartzPersianVolute);
+          output.accept(ModBlocks.stonePersianBracketBull);
         })
     );
   }

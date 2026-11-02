@@ -15,7 +15,7 @@ Progress key: `Mo` Model, `UV` UV mapping, `Cl` Class, `Tx` Texture(s),
 ```
 GENERIC
 --------------------------------------------------------------------------------
-   Cn       St Wd _colum
+   Cn       St Wd _column
    Cn       St Wd _column_fluted
    Cn       St Wd _pilaster
    Cn       St Wd _pilaster_fluted

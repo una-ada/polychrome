@@ -23,7 +23,7 @@ public class ModItems{
         .icon(() -> ModItems.yourItem.createStack())
         .displayItems((displayParameters, output) -> {
           output.accept(ModItems.yourItem);
-          output.accept(ModBlocks.persianVolute);
+          output.accept(ModBlocks.quartzPersianVolute);
         })
     );
   }

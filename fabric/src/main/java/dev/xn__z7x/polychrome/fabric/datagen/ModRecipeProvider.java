@@ -22,7 +22,7 @@ public class ModRecipeProvider extends FabricRecipeProvider{
 
   @Override
   public void buildRecipes(RecipeOutput exporter){
-    shaped(RecipeCategory.DECORATIONS, ModBlocks.yourBlock)
+    shaped(RecipeCategory.DECORATIONS, ModBlocks.persianVolute)
       .pattern("DDD")
       .pattern("SSS")
       .pattern("DDD")

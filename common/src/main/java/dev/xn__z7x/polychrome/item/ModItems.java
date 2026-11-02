@@ -1,5 +1,6 @@
 package dev.xn__z7x.polychrome.item;
 
+import dev.xn__z7x.polychrome.block.ModBlocks;
 import net.blay09.mods.balm.world.item.BalmCreativeModeTabRegistrar;
 import net.blay09.mods.balm.world.item.BalmItemRegistrar;
 import net.blay09.mods.balm.world.item.DeferredItem;
@@ -22,6 +23,7 @@ public class ModItems{
         .icon(() -> ModItems.yourItem.createStack())
         .displayItems((displayParameters, output) -> {
           output.accept(ModItems.yourItem);
+          output.accept(ModBlocks.persianVolute);
         })
     );
   }

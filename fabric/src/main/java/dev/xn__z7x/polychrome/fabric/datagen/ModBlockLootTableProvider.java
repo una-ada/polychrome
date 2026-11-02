@@ -14,6 +14,6 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider{
 
   @Override
   public void generate(){
-    dropSelf(ModBlocks.yourBlock.asBlock());
+    dropSelf(ModBlocks.persianVolute.asBlock());
   }
 }

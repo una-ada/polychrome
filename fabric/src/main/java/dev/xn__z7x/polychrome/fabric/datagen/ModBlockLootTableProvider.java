@@ -15,9 +15,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider{
 
   @Override
   public void generate(){
-    dropSelf(ModBlocks.quartzPersianVolute.asBlock());
-    ModBlocks.persianBracketsBull.forEach((mat, block) -> {
-      dropSelf(block.asBlock());
-    });
+    ModBlocks.persianBracketsBull.forEach((mat, block) -> { dropSelf(block.asBlock()); });
+    ModBlocks.persianVolutes.forEach((mat, block) -> { dropSelf(block.asBlock()); });
   }
 }

@@ -7,16 +7,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ModBlocks{
-  public static DeferredBlock
-    quartzPersianVolute;
-  public static Map<String, DeferredBlock> persianBracketsBull = new HashMap<>();
+  public static Map<String, DeferredBlock>
+    persianBracketsBull = new HashMap<>(),
+    persianVolutes = new HashMap<>();
 
   public static void initialize(BalmBlockRegistrar blocks){
-    quartzPersianVolute = blocks.register("quartz_persian_volute", PersianVolute::new, it -> it.strength(1.5f)).withDefaultItem().asDeferredBlock();
-
-    final String[] persianBracketBullMaterials = Materials.list(Materials.CONCRETE, Materials.STONES);
-    for(String material : persianBracketBullMaterials){
+    final String[] concreteAndStones = Materials.list(Materials.CONCRETE, Materials.STONES);
+    for(String material : concreteAndStones){
       persianBracketsBull.put(material, blocks.register(material + "_persian_bracket_bull", PersianBracket::new, it -> it).withDefaultItem().asDeferredBlock());
+      persianVolutes.put(material, blocks.register(material + "_persian_volute", PersianVolute::new, it -> it).withDefaultItem().asDeferredBlock());
     }
   }
 }

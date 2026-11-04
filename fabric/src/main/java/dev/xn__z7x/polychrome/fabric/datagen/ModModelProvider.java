@@ -43,19 +43,18 @@ public class ModModelProvider extends FabricModelProvider{
       PERSIAN_BRACKET_BULL.create(block.asBlock(), mapping, generator.modelOutput);
       generator.createNonTemplateHorizontalBlock(block.asBlock());
     });
+    ModBlocks.persianVolutes.forEach((material, block) -> {
+      TextureMapping mapping = new TextureMapping()
+        .put(TextureSlot.SIDE,   texture(material + "_column_fluting"))
+        .put(TextureSlot.END,    texture(material + "_column_top"))
+        .put(TextureSlot.LAYER0, texture(material + "_volute"));
+      PERSIAN_VOLUTE.create(block.asBlock(), mapping, generator.modelOutput);
+      generator.createNonTemplateModelBlock(block.asBlock());
+    });
   }
 
   @Override
   public void generateItemModels(ItemModelGenerators generator){
 
-  }
-
-  public static class PersianVolute  {
-    public static TextureMapping mapMaterial(String material) {
-      return new TextureMapping()
-        .put(TextureSlot.SIDE,   texture(material + "_fluting"))
-        .put(TextureSlot.END,    texture(material + "_top"))
-        .put(TextureSlot.LAYER0, texture(material + "_volute"));
-    }
   }
 }

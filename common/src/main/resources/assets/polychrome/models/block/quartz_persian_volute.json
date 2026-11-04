@@ -1,8 +1,0 @@
-{
-  "parent": "polychrome:block/persian_volute",
-  "textures": {
-    "end": "minecraft:block/quartz_pillar_top",
-    "side": "minecraft:block/quartz_pillar",
-    "layer0": "polychrome:block/quartz_volute"
-  }
-}

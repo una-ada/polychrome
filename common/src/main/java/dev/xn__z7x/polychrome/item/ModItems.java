@@ -19,12 +19,10 @@ public class ModItems{
   public static void initialize(BalmCreativeModeTabRegistrar creativeModeTabs){
     creativeModeTabs.register(Polychrome.MOD_ID, builder ->
       builder.title(Component.translatable(id(Polychrome.MOD_ID).toLanguageKey("itemGroup")))
-        .icon(() -> ModBlocks.quartzPersianVolute.createStack())
+        .icon(() -> ModBlocks.persianVolutes.get("quartz").createStack())
         .displayItems((displayParameters, output) -> {
-          output.accept(ModBlocks.quartzPersianVolute);
-          ModBlocks.persianBracketsBull.forEach((material, block) -> {
-            output.accept(block);
-          });
+          ModBlocks.persianBracketsBull.forEach((material, block) -> { output.accept(block); });
+          ModBlocks.persianVolutes.forEach((material, block) -> { output.accept(block); });
         })
     );
   }

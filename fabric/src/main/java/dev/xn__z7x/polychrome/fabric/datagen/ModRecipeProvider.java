@@ -35,8 +35,10 @@ public class ModRecipeProvider extends FabricRecipeProvider{
 
   @Override
   public void buildRecipes(RecipeOutput exporter){
+    ModBlocks.flutedColumns.forEach((material, block) -> { stonecutting(material, block, exporter); });
     ModBlocks.persianBracketsBull.forEach((material, block) -> { stonecutting(material, block, exporter); });
     ModBlocks.persianVolutes.forEach((material, block) -> { stonecutting(material, block, exporter); });
+    ModBlocks.persianCapitals.forEach((material, block) -> { stonecutting(material, block, exporter); });
   }
 
   @Override

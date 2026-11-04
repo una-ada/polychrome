@@ -15,8 +15,8 @@ Progress key: `Mo` Model, `UV` UV mapping, `Cl` Class, `Tx` Texture(s),
 ```
 GENERIC
 --------------------------------------------------------------------------------
-   Cn       St Wd _column
-   Cn       St Wd _column_fluted
+   Cn       St Wd _column                                  Mo UV Cl
+   Cn       St Wd _column_fluted                           Mo UV Cl Tx X
    Cn       St Wd _pilaster
    Cn       St Wd _pilaster_fluted
 
@@ -26,15 +26,15 @@ PERSIAN / ACHAEMENID
    Cn    Pc St    _persian_stair_edge
    Cn    Pc    Wd _persian_architrave
                Wd _persian_bracket_abstract
-   Cn    Pc St    _persian_bracket_bull
+   Cn    Pc St    _persian_bracket_bull                    Mo UV Cl Tx X
    Cn       St    _persian_bracket_bull_pilaster
    Cn       St    _persian_bracket_bull_compact
    Cn    Pc St    _persian_bracket_griffin
    Cn    Pc St    _persian_bracket_lion
    Cn    Pc St    _persian_bracket_lamassu
-   Cn    Pc St    _persian_capital_volute                  Mo UV Cl 
+   Cn    Pc St    _persian_capital_volute                  Mo UV Cl Tx X
    Cn       St    _persian_pilaster_capital_volute
-   Cn    Pc St    _persian_capital_bell
+   Cn    Pc St    _persian_capital_bell                    Mo UV
    Cn       St    _persian_pilaster_capital_bell
    Cn    Pc St    _persian_column_base
    Cn       St    _persian_pilaster_base

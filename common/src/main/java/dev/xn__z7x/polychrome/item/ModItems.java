@@ -21,8 +21,10 @@ public class ModItems{
       builder.title(Component.translatable(id(Polychrome.MOD_ID).toLanguageKey("itemGroup")))
         .icon(() -> ModBlocks.persianVolutes.get("quartz").createStack())
         .displayItems((displayParameters, output) -> {
+          ModBlocks.flutedColumns.forEach((material, block) -> { output.accept(block); });
           ModBlocks.persianBracketsBull.forEach((material, block) -> { output.accept(block); });
           ModBlocks.persianVolutes.forEach((material, block) -> { output.accept(block); });
+          ModBlocks.persianCapitals.forEach((material, block) -> { output.accept(block); });
         })
     );
   }

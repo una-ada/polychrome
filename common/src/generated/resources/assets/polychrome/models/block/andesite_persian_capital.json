@@ -1,0 +1,6 @@
+{
+  "parent": "polychrome:block/persian_capital",
+  "textures": {
+    "side": "polychrome:block/andesite_persian_capital"
+  }
+}

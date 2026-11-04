@@ -1,0 +1,54 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/block",
+	"textures": {
+		"particle": "#side"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 2],
+			"to": [8, 16, 8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [2, 0, 2]},
+			"faces": {
+				"north": {"uv": [10, 0, 16, 16], "texture": "#side"},
+				"west": {"uv": [0, 0, 6, 16], "texture": "#side"},
+				"up": {"uv": [0, 0, 6, 6], "texture": "#end"},
+				"down": {"uv": [0, 10, 6, 16], "texture": "#end"}
+			}
+		},
+		{
+			"from": [8, 0, 2],
+			"to": [14, 16, 8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [2, 0, 2]},
+			"faces": {
+				"north": {"uv": [0, 0, 6, 16], "texture": "#side"},
+				"east": {"uv": [10, 0, 16, 16], "texture": "#side"},
+				"up": {"uv": [10, 0, 16, 6], "texture": "#end"},
+				"down": {"uv": [10, 10, 16, 16], "texture": "#end"}
+			}
+		},
+		{
+			"from": [2, 0, 8],
+			"to": [8, 16, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [2, 0, 2]},
+			"faces": {
+				"south": {"uv": [0, 0, 6, 16], "texture": "#side"},
+				"west": {"uv": [10, 0, 16, 16], "texture": "#side"},
+				"up": {"uv": [0, 10, 6, 16], "texture": "#end"},
+				"down": {"uv": [0, 0, 6, 6], "texture": "#end"}
+			}
+		},
+		{
+			"from": [8, 0, 8],
+			"to": [14, 16, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [2, 0, 2]},
+			"faces": {
+				"east": {"uv": [0, 0, 6, 16], "texture": "#side"},
+				"south": {"uv": [10, 0, 16, 16], "texture": "#side"},
+				"up": {"uv": [10, 10, 16, 16], "texture": "#end"},
+				"down": {"uv": [10, 0, 16, 6], "texture": "#end"}
+			}
+		}
+	]
+}

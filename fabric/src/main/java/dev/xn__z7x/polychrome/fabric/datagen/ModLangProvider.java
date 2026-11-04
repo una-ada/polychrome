@@ -23,11 +23,17 @@ public class ModLangProvider extends FabricLanguageProvider {
     } catch(IOException e) {
       throw new RuntimeException("Failed to add existing language file", e);
     }
+    ModBlocks.flutedColumns.forEach((material, block) -> {
+      builder.add(block.asBlock(), Materials.asString(material) + " Fluted Column");
+    });
     ModBlocks.persianBracketsBull.forEach((material, block) -> {
       builder.add(block.asBlock(), Materials.asString(material) + " Persian Bracket (Bull)");
     });
     ModBlocks.persianVolutes.forEach((material, block) -> {
       builder.add(block.asBlock(), Materials.asString(material) + " Persian Capital Volute");
+    });
+    ModBlocks.persianCapitals.forEach((material, block) -> {
+      builder.add(block.asBlock(), Materials.asString(material) + " Persian Capital Bell");
     });
   }
 }

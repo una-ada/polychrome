@@ -1,6 +1,7 @@
 {
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/block",
 	"textures": {
 		"particle": "#side"
 	},
@@ -320,32 +321,10 @@
 		}
 	],
 	"display": {
-		"thirdperson_righthand": {
-			"scale": [0.5, 0.5, 0.5]
-		},
-		"thirdperson_lefthand": {
-			"scale": [0.5, 0.5, 0.5]
-		},
-		"firstperson_righthand": {
-			"scale": [0.5, 0.5, 0.5]
-		},
-		"firstperson_lefthand": {
-			"scale": [0.5, 0.5, 0.5]
-		},
-		"ground": {
-			"translation": [0, 6, 0],
-			"scale": [0.5, 0.5, 0.5]
-		},
 		"gui": {
-			"rotation": [45, 45, 0],
+			"rotation": [30, 225, 0],
 			"translation": [0, 1, 0],
 			"scale": [0.5, 0.5, 0.5]
-		},
-		"head": {
-			"translation": [0, 2, 0]
-		},
-		"fixed": {
-			"translation": [0, 4, 0]
 		}
 	}
 }

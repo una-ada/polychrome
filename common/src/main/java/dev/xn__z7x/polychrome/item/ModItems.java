@@ -22,7 +22,9 @@ public class ModItems{
         .icon(() -> ModBlocks.quartzPersianVolute.createStack())
         .displayItems((displayParameters, output) -> {
           output.accept(ModBlocks.quartzPersianVolute);
-          output.accept(ModBlocks.stonePersianBracketBull);
+          ModBlocks.persianBracketsBull.forEach((material, block) -> {
+            output.accept(block);
+          });
         })
     );
   }

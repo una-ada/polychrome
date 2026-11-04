@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "polychrome:block/tuff_persian_bracket_bull",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "polychrome:block/tuff_persian_bracket_bull"
+    },
+    "facing=south": {
+      "model": "polychrome:block/tuff_persian_bracket_bull",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "polychrome:block/tuff_persian_bracket_bull",
+      "y": 270
+    }
+  }
+}

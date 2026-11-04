@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.core.HolderLookup;
 import dev.xn__z7x.polychrome.block.ModBlocks;
+import net.minecraft.world.level.block.Block;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -15,5 +16,8 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider{
   @Override
   public void generate(){
     dropSelf(ModBlocks.quartzPersianVolute.asBlock());
+    ModBlocks.persianBracketsBull.forEach((mat, block) -> {
+      dropSelf(block.asBlock());
+    });
   }
 }

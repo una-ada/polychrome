@@ -45,4 +45,27 @@ public class Materials{
   public static Item asItem(String material){
     return asBlock(material).asItem();
   }
+
+  public static String asString(String material){
+    return switch(material){
+      case "gold"             -> "Gilded";
+      case "concrete"         -> "Concrete";
+      case "copper"           -> "Copper";
+      case "exposed_copper"   -> "Exposed Copper";
+      case "weathered_copper" -> "Weathered Copper";
+      case "oxidized_copper"  -> "Oxidized Copper";
+      case "andesite"         -> "Andesite";
+      case "stone"            -> "Stone";
+      case "tuff"             -> "Tuff";
+      case "deepslate"        -> "Deepslate";
+      case "sandstone"        -> "Sandstone";
+      case "quartz"           -> "Quartz";
+      case "birch"            -> "Birch";
+      case "oak"              -> "Oak";
+      case "spruce"           -> "Spruce";
+      case "dark_oak"         -> "Dark Oak";
+      case "mangrove"         -> "Mangrove";
+      default                 -> "";
+    };
+  }
 }

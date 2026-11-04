@@ -22,20 +22,6 @@ public class ModRecipeProvider extends FabricRecipeProvider{
 
   @Override
   public void buildRecipes(RecipeOutput exporter){
-    shaped(RecipeCategory.DECORATIONS, ModBlocks.persianVolute)
-      .pattern("DDD")
-      .pattern("SSS")
-      .pattern("DDD")
-      .define('D', Items.DIAMOND)
-      .define('S', Items.STICK)
-      .unlockedBy("has_diamond", has(Items.DIAMOND))
-      .save(exporter);
-
-    shapeless(RecipeCategory.DECORATIONS, ModItems.yourItem)
-      .requires(Items.DIAMOND)
-      .requires(Items.BONE_MEAL)
-      .unlockedBy("has_bone_meal", has(Items.BONE_MEAL))
-      .save(exporter);
   }
 
   @Override

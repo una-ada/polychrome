@@ -15,6 +15,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider{
 
   @Override
   protected void addTags(HolderLookup.Provider arg){
-    getOrCreateTagBuilder(ModBlockTags.YOUR_TAG).add(ModBlocks.persianVolute.asBlock());
+    getOrCreateTagBuilder(ModBlockTags.YOUR_TAG).add(ModBlocks.quartzPersianVolute.asBlock());
   }
 }

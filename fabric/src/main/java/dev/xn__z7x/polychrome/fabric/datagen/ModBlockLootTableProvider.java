@@ -4,9 +4,9 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.core.HolderLookup;
 import dev.xn__z7x.polychrome.block.ModBlocks;
-import net.minecraft.world.level.block.Block;
 
 import java.util.concurrent.CompletableFuture;
+
 
 public class ModBlockLootTableProvider extends FabricBlockLootTableProvider{
   protected ModBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> provider){
@@ -15,9 +15,11 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider{
 
   @Override
   public void generate(){
-    ModBlocks.flutedColumns.forEach((mat, block) -> { dropSelf(block.asBlock()); });
-    ModBlocks.persianBracketsBull.forEach((mat, block) -> { dropSelf(block.asBlock()); });
-    ModBlocks.persianVolutes.forEach((mat, block) -> { dropSelf(block.asBlock()); });
-    ModBlocks.persianCapitals.forEach((mat, block) -> { dropSelf(block.asBlock()); });
+    for(var blocks : ModBlocks.blocks){
+      blocks.forEachBlock(this::dropSelf);
+    }
+    ModBlocks.easyBlocks.forEach((blocks) -> {
+      blocks.forEach((mat, block) -> { dropSelf(block.asBlock()); });
+    });
   }
 }

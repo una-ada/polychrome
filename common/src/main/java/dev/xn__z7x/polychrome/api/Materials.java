@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 public class Materials{
   public static String[]
+    NONE       = {""},
     GOLD       = {"gold"},
     CONCRETE   = {"concrete"},
     COPPER     = {"copper", "exposed_copper", "weathered_copper", "oxidized_copper"},

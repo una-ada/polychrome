@@ -21,23 +21,23 @@ public class ModBlocks{
   public static final ModelTemplate
     COLUMN = Model.block("block/column", TextureSlot.SIDE, TextureSlot.END),
     PERSIAN_BRACKET_BULL = Model.block("block/persian_bracket_bull", TextureSlot.SIDE),
-    PERSIAN_VOLUTE = Model.block("block/persian_volute", TextureSlot.SIDE, TextureSlot.END, TextureSlot.LAYER0),
-    PERSIAN_CAPITAL = Model.block("block/persian_capital", TextureSlot.SIDE);
+    PERSIAN_VOLUTE = Model.block("block/persian_column_volute", TextureSlot.SIDE, TextureSlot.END, TextureSlot.LAYER0),
+    PERSIAN_CAPITAL = Model.block("block/persian_column_capital", TextureSlot.SIDE);
 
   public static Model
     flutedColumns = new Model("fluted_column", "Fluted Column", Column::new, CONCRETE, STONES)
       .withModel(COLUMN, material -> new TextureMapping()
-        .put(TextureSlot.SIDE, Polychrome.id("block/" + material + "_column_fluting"))
-        .put(TextureSlot.END, Polychrome.id("block/" + material + "_column_top"))),
+        .put(TextureSlot.SIDE,  Polychrome.id("block/" + material + "_column_fluting"))
+        .put(TextureSlot.END,   Polychrome.id("block/" + material + "_column_top"))),
     persianBracketsBull = new Model("persian_bracket_bull", "Persian Bracket (Bull)", PersianBracket::new, CONCRETE, STONES)
       .withModel(PERSIAN_BRACKET_BULL)
       .withState("horizontal"),
-    persianVolutes = new Model("persian_volute", "Persian Capital Volute", PersianVolute::new, CONCRETE, STONES)
+    persianVolutes = new Model("persian_column_volute", "Persian Column Volute", PersianVolute::new, CONCRETE, STONES)
       .withModel(PERSIAN_VOLUTE, material -> new TextureMapping()
         .put(TextureSlot.SIDE,   Polychrome.id("block/" + material + "_column_fluting"))
         .put(TextureSlot.END,    Polychrome.id("block/" + material + "_column_top"))
         .put(TextureSlot.LAYER0, Polychrome.id("block/" + material + "_volute"))),
-    persianCapitals = new Model("persian_capital", "Persian Capital Bell", Column::new, CONCRETE, STONES)
+    persianCapitals = new Model("persian_column_capital", "Persian Column Capital", Column::new, CONCRETE, STONES)
       .withModel(PERSIAN_CAPITAL);
 
   public static Model[] blocks = new Model[]{

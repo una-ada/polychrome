@@ -38,9 +38,6 @@ public class ModRecipeProvider extends FabricRecipeProvider{
     for(var blocks : ModBlocks.blocks){
       blocks.forEach((material, block) -> stonecutting(material, block, exporter));
     }
-    ModBlocks.easyBlocks.forEach((blocks) -> {
-      blocks.forEach((material, block) -> { stonecutting(material, block, exporter); });
-    });
   }
 
   @Override

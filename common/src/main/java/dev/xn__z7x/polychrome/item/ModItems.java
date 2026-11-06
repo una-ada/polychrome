@@ -19,9 +19,6 @@ public class ModItems{
       builder.title(Component.translatable(id(Polychrome.MOD_ID).toLanguageKey("itemGroup")))
         .icon(() -> ModBlocks.persianVolutes.get("quartz").createStack())
         .displayItems((displayParameters, output) -> {
-          ModBlocks.easyBlocks.forEach((blocks) -> {
-            blocks.forEach((material, block) -> { output.accept(block);});
-          });
           for(var blocks : ModBlocks.blocks){
             blocks.forEachBlock(block -> output.accept(block));
           }

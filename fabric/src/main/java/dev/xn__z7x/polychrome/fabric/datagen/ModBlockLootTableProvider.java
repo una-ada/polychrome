@@ -18,8 +18,5 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider{
     for(var blocks : ModBlocks.blocks){
       blocks.forEachBlock(this::dropSelf);
     }
-    ModBlocks.easyBlocks.forEach((blocks) -> {
-      blocks.forEach((mat, block) -> { dropSelf(block.asBlock()); });
-    });
   }
 }

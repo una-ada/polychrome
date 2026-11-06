@@ -19,37 +19,39 @@ import static dev.xn__z7x.polychrome.api.Materials.*;
 
 public class ModBlocks{
   public static final ModelTemplate
-    COLUMN = Model.block("block/column", TextureSlot.SIDE, TextureSlot.END);
+    COLUMN = Model.block("block/column", TextureSlot.SIDE, TextureSlot.END),
+    PERSIAN_BRACKET_BULL = Model.block("block/persian_bracket_bull", TextureSlot.SIDE),
+    PERSIAN_VOLUTE = Model.block("block/persian_volute", TextureSlot.SIDE, TextureSlot.END, TextureSlot.LAYER0),
+    PERSIAN_CAPITAL = Model.block("block/persian_capital", TextureSlot.SIDE);
 
   public static Model
     flutedColumns = new Model("fluted_column", "Fluted Column", Column::new, CONCRETE, STONES)
       .withModel(COLUMN, material -> new TextureMapping()
         .put(TextureSlot.SIDE, Polychrome.id("block/" + material + "_column_fluting"))
-        .put(TextureSlot.END, Polychrome.id("block/" + material + "_column_top")));
+        .put(TextureSlot.END, Polychrome.id("block/" + material + "_column_top"))),
+    persianBracketsBull = new Model("persian_bracket_bull", "Persian Bracket (Bull)", PersianBracket::new, CONCRETE, STONES)
+      .withModel(PERSIAN_BRACKET_BULL)
+      .withState("horizontal"),
+    persianVolutes = new Model("persian_volute", "Persian Capital Volute", PersianVolute::new, CONCRETE, STONES)
+      .withModel(PERSIAN_VOLUTE, material -> new TextureMapping()
+        .put(TextureSlot.SIDE,   Polychrome.id("block/" + material + "_column_fluting"))
+        .put(TextureSlot.END,    Polychrome.id("block/" + material + "_column_top"))
+        .put(TextureSlot.LAYER0, Polychrome.id("block/" + material + "_volute"))),
+    persianCapitals = new Model("persian_capital", "Persian Capital Bell", Column::new, CONCRETE, STONES)
+      .withModel(PERSIAN_CAPITAL);
 
-  public static Map<String, DeferredBlock>
-    //flutedColumns = new HashMap<>(),
-    persianBracketsBull = new HashMap<>(),
-    persianVolutes = new HashMap<>(),
-    persianCapitals = new HashMap<>();
   public static Model[] blocks = new Model[]{
-    flutedColumns
-  };
-  public static Set<Map<String, DeferredBlock>> easyBlocks = new HashSet<Map<String, DeferredBlock>>(Arrays.asList(
-    // flutedColumns,
+    flutedColumns,
     persianBracketsBull,
     persianVolutes,
     persianCapitals
-  ));
+  };
+
 
   public static void initialize(BalmBlockRegistrar regis){
-    flutedColumns.init(regis);
-    for(String material : Materials.list(CONCRETE, STONES)){
-      persianBracketsBull.put(material, regis.register(material + "_persian_bracket_bull", PersianBracket::new, it -> it).withDefaultItem().asDeferredBlock());
-      persianVolutes.put(material, regis.register(material + "_persian_volute", PersianVolute::new, it -> it).withDefaultItem().asDeferredBlock());
-      persianCapitals.put(material, regis.register(material + "_persian_capital", Column::new, it -> it).withDefaultItem().asDeferredBlock());
+    for(Model model : blocks){
+      model.init(regis);
     }
-    new Model("persian_bracket_bull", "Persian Bracket (Bull)", PersianBracket::new, CONCRETE, STONES);
   }
 
   public static class Model {

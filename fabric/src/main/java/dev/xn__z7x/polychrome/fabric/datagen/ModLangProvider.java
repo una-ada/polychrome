@@ -28,14 +28,5 @@ public class ModLangProvider extends FabricLanguageProvider {
         builder.add(block, Materials.asString(material) + " " + blocks.displayName);
       });
     }
-    ModBlocks.persianBracketsBull.forEach((material, block) -> {
-      builder.add(block.asBlock(), Materials.asString(material) + " Persian Bracket (Bull)");
-    });
-    ModBlocks.persianVolutes.forEach((material, block) -> {
-      builder.add(block.asBlock(), Materials.asString(material) + " Persian Capital Volute");
-    });
-    ModBlocks.persianCapitals.forEach((material, block) -> {
-      builder.add(block.asBlock(), Materials.asString(material) + " Persian Capital Bell");
-    });
   }
 }

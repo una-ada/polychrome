@@ -38,7 +38,8 @@ public class ModBlocks{
         .put(TextureSlot.END,    Polychrome.id("block/" + material + "_column_top"))
         .put(TextureSlot.LAYER0, Polychrome.id("block/" + material + "_volute"))),
     persianCapitals = new Model("persian_column_capital", "Persian Column Capital", Column::new, CONCRETE, STONES)
-      .withModel(PERSIAN_CAPITAL);
+      .withModel(PERSIAN_CAPITAL, material -> new TextureMapping()
+        .put(TextureSlot.SIDE,  Polychrome.id("block/" + material + "_persian_capital")));
 
   public static Model[] blocks = new Model[]{
     flutedColumns,

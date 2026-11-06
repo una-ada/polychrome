@@ -1,6 +1,6 @@
 {
   "parent": "polychrome:block/persian_column_capital",
   "textures": {
-    "side": "polychrome:block/tuff_persian_column_capital"
+    "side": "polychrome:block/tuff_persian_capital"
   }
 }

@@ -13,7 +13,7 @@ public class Materials{
     CONCRETE   = {"concrete"},
     COPPER     = {"copper", "exposed_copper", "weathered_copper", "oxidized_copper"},
     POLYCHROME = {"polychrome"},
-    STONES     = {"andesite", "stone", "tuff", "deepslate", "sandstone", "quartz"},
+    STONES     = {"sandstone", "quartz", "andesite", "stone", "tuff", "deepslate"},
     WOODS      = {"birch", "oak", "spruce", "dark_oak", "mangrove"};
 
   public static String[] list(String[]... materials){
@@ -28,12 +28,12 @@ public class Materials{
       case "exposed_copper"   -> Blocks.EXPOSED_COPPER;
       case "weathered_copper" -> Blocks.WEATHERED_COPPER;
       case "oxidized_copper"  -> Blocks.OXIDIZED_COPPER;
+      case "sandstone"        -> Blocks.SANDSTONE;
+      case "quartz"           -> Blocks.QUARTZ_BLOCK;
       case "andesite"         -> Blocks.ANDESITE;
       case "stone"            -> Blocks.STONE;
       case "tuff"             -> Blocks.TUFF;
       case "deepslate"        -> Blocks.DEEPSLATE;
-      case "sandstone"        -> Blocks.SANDSTONE;
-      case "quartz"           -> Blocks.QUARTZ_BLOCK;
       case "birch"            -> Blocks.BIRCH_LOG;
       case "oak"              -> Blocks.OAK_LOG;
       case "spruce"           -> Blocks.SPRUCE_LOG;
@@ -55,12 +55,12 @@ public class Materials{
       case "exposed_copper"   -> "Exposed Copper";
       case "weathered_copper" -> "Weathered Copper";
       case "oxidized_copper"  -> "Oxidized Copper";
+      case "sandstone"        -> "Sandstone";
+      case "quartz"           -> "Quartz";
       case "andesite"         -> "Andesite";
       case "stone"            -> "Stone";
       case "tuff"             -> "Tuff";
       case "deepslate"        -> "Deepslate";
-      case "sandstone"        -> "Sandstone";
-      case "quartz"           -> "Quartz";
       case "birch"            -> "Birch";
       case "oak"              -> "Oak";
       case "spruce"           -> "Spruce";

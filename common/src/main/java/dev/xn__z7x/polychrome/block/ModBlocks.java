@@ -53,8 +53,7 @@ public class ModBlocks{
         .put(TextureSlot.END,    Polychrome.id("block/" + material + "_column_top"))
         .put(TextureSlot.LAYER0, Polychrome.id("block/" + material + "_volute"))),
     persianCapitals = new Model("persian_column_capital", "Persian Column Capital", Column::new, CONCRETE, STONES)
-      .withModel(PERSIAN_CAPITAL, material -> new TextureMapping()
-        .put(TextureSlot.SIDE,  Polychrome.id("block/" + material + "_persian_capital")));
+      .withModel(PERSIAN_CAPITAL, Model.defaultMappingFunction("persian_capital"));
 
   public static Model[] blocks = new Model[]{
     columns,
@@ -97,9 +96,9 @@ public class ModBlocks{
       return material -> new TextureMapping().put(TextureSlot.SIDE, Polychrome.id("block/" + material + "_" + name));
     }
 
-    public Model(  String name, String displayName,
-                   Function<Properties, Block> constructor,
-                   String[]... materials){
+    public Model(String name, String displayName,
+                 Function<Properties, Block> constructor,
+                 String[]... materials){
       this.name = name;
       this.displayName = displayName;
       this.constructor = constructor;
@@ -108,7 +107,7 @@ public class ModBlocks{
       this.mappingFunction = defaultMappingFunction(name);
       this.stateBuilder = defaultStateBuilder;
       this.materials = Materials.list(materials);
-      this.deferredBlocks = new HashMap<>();
+      this.deferredBlocks = new LinkedHashMap<>();
     }
 
     public void init(BalmBlockRegistrar registrar) {

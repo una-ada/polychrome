@@ -20,6 +20,7 @@ public class ModModelProvider extends FabricModelProvider{
         blocks.model.create(block, mapping, generator.modelOutput);
         switch(blocks.stateBuilder){
           case "horizontal" -> generator.createNonTemplateHorizontalBlock(block);
+          // case "stair"      -> generator.blockStateOutput.accept(BlockModelGenerators.createStairs(block, inner, straight, outer));
           default           -> generator.createNonTemplateModelBlock(block);
         }
       });

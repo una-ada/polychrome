@@ -24,9 +24,7 @@ public class ModLangProvider extends FabricLanguageProvider {
       throw new RuntimeException("Failed to add existing language file", e);
     }
     for(var blocks : ModBlocks.blocks){
-      blocks.forEachBlock((material, block) -> {
-        builder.add(block, Materials.asString(material) + " " + blocks.displayName);
-      });
+      blocks.forEachBlock((material, block) -> builder.add(block, Materials.asString(material) + " " + blocks.displayName));
     }
   }
 }

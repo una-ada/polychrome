@@ -5,7 +5,6 @@ import net.blay09.mods.balm.world.item.BalmCreativeModeTabRegistrar;
 import net.blay09.mods.balm.world.item.BalmItemRegistrar;
 import net.minecraft.network.chat.Component;
 import dev.xn__z7x.polychrome.Polychrome;
-
 import static dev.xn__z7x.polychrome.Polychrome.id;
 
 public class ModItems{

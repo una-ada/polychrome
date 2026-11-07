@@ -10,8 +10,6 @@ import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.data.models.model.TextureSlot;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
-
-import javax.script.CompiledScript;
 import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -92,22 +90,11 @@ public class ModBlocks{
     public String[] materials;
     public Map<String, DeferredBlock> deferredBlocks;
 
-    public static Function<Properties, Block> defaultConstructor = Block::new;
     public static Function<Properties, Properties> defaultPropertiesBuilder = it -> it;
     public static ModelTemplate defaultModel = null;
     public static String defaultStateBuilder = "model";
-    public static String[] defaultMaterials = NONE;
     public static Function<String, TextureMapping> defaultMappingFunction(String name){
       return material -> new TextureMapping().put(TextureSlot.SIDE, Polychrome.id("block/" + material + "_" + name));
-    }
-
-    public Model(String name, String displayName) {
-      this(name, displayName, defaultMaterials);
-    }
-
-    public Model(String name, String displayName,
-                 String[]... materials) {
-      this(name, displayName, defaultConstructor, materials);
     }
 
     public Model(  String name, String displayName,
@@ -149,22 +136,16 @@ public class ModBlocks{
     }
 
     public void forEach(Consumer<DeferredBlock> callback){
-      deferredBlocks.forEach((material, block) -> {
-        callback.accept(block);
-      });
+      deferredBlocks.forEach((material, block) -> callback.accept(block));
     }
     public void forEach(BiConsumer<String, DeferredBlock> callback){
       deferredBlocks.forEach(callback);
     }
     public void forEachBlock(Consumer<Block> callback){
-      deferredBlocks.forEach((material, block) -> {
-        callback.accept(block.asBlock());
-      });
+      deferredBlocks.forEach((material, block) -> callback.accept(block.asBlock()));
     }
     public void forEachBlock(BiConsumer<String, Block> callback){
-      deferredBlocks.forEach((material, block) -> {
-        callback.accept(material, block.asBlock());
-      });
+      deferredBlocks.forEach((material, block) -> callback.accept(material, block.asBlock()));
     }
 
     public DeferredBlock get(String material){

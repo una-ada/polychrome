@@ -1,0 +1,7 @@
+{
+  "parent": "polychrome:block/column",
+  "textures": {
+    "end": "polychrome:block/sandstone_column_top",
+    "side": "polychrome:block/sandstone_column"
+  }
+}

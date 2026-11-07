@@ -1,0 +1,7 @@
+{
+  "parent": "polychrome:block/pilaster",
+  "textures": {
+    "end": "polychrome:block/deepslate_column_top",
+    "side": "polychrome:block/deepslate_column"
+  }
+}

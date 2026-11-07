@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_birch": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:birch_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "polychrome:birch_column_from_birch"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_birch"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "polychrome:birch_column_from_birch"
+    ]
+  }
+}

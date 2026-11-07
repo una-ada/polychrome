@@ -1,0 +1,7 @@
+{
+  "parent": "polychrome:block/column",
+  "textures": {
+    "end": "polychrome:block/andesite_column_top",
+    "side": "polychrome:block/andesite_column"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "polychrome:block/pilaster",
+  "textures": {
+    "end": "polychrome:block/spruce_column_top",
+    "side": "polychrome:block/spruce_column"
+  }
+}

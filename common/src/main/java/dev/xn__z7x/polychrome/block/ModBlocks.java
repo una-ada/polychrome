@@ -28,10 +28,19 @@ public class ModBlocks{
     PERSIAN_CAPITAL = Model.block("block/persian_column_capital", TextureSlot.SIDE);
 
   public static Model
+    columns = new Model("column", "Column", Column::new, CONCRETE, STONES, WOODS)
+      .withModel(COLUMN, material -> new TextureMapping()
+        .put(TextureSlot.SIDE,  Polychrome.id("block/" + material + "_column"))
+        .put(TextureSlot.END,   Polychrome.id("block/" + material + "_column_top"))),
     flutedColumns = new Model("fluted_column", "Fluted Column", Column::new, CONCRETE, STONES)
       .withModel(COLUMN, material -> new TextureMapping()
         .put(TextureSlot.SIDE,  Polychrome.id("block/" + material + "_column_fluting"))
         .put(TextureSlot.END,   Polychrome.id("block/" + material + "_column_top"))),
+    pilasters = new Model("pilaster", "Pilaster", Pilaster::new, CONCRETE, STONES, WOODS)
+      .withModel(PILASTER, material -> new TextureMapping()
+        .put(TextureSlot.SIDE,  Polychrome.id("block/" + material + "_column"))
+        .put(TextureSlot.END,   Polychrome.id("block/" + material + "_column_top")))
+      .withState("horizontal"),
     flutedPilasters = new Model("fluted_pilaster", "Fluted Pilaster", Pilaster::new, CONCRETE, STONES)
       .withModel(PILASTER, material -> new TextureMapping()
         .put(TextureSlot.SIDE,  Polychrome.id("block/" + material + "_column_fluting"))
@@ -50,7 +59,9 @@ public class ModBlocks{
         .put(TextureSlot.SIDE,  Polychrome.id("block/" + material + "_persian_capital")));
 
   public static Model[] blocks = new Model[]{
+    columns,
     flutedColumns,
+    pilasters,
     flutedPilasters,
     persianBracketsBull,
     persianVolutes,

@@ -1,0 +1,6 @@
+{
+  "parent": "polychrome:block/persian_merlon_deco_straight",
+  "textures": {
+    "side": "polychrome:block/tuff_persian_merlon_deco"
+  }
+}

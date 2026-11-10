@@ -1,12 +1,12 @@
 package dev.xn__z7x.polychrome.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 
 public class PersianBracket extends DirectionalBlock {
   public static final VoxelShape[] SHAPE = new VoxelShape[]{
@@ -43,9 +43,8 @@ public class PersianBracket extends DirectionalBlock {
   public PersianBracket(Properties properties){ super(properties); }
 
   @Override
-  public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context){
-    Direction direction = state.getValue(FACING);
-    return SHAPE[direction.get2DDataValue()];
+  public @NotNull VoxelShape getShape(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context){
+    return SHAPE[state.getValue(FACING).get2DDataValue()];
   }
 
 }

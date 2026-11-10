@@ -2,15 +2,20 @@ package dev.xn__z7x.polychrome.block;
 
 import dev.xn__z7x.polychrome.Polychrome;
 import dev.xn__z7x.polychrome.util.BlockModel;
+import dev.xn__z7x.polychrome.util.VoxelShapeUtils;
 import net.blay09.mods.balm.world.level.block.BalmBlockRegistrar;
 import net.minecraft.data.models.model.ModelTemplate;
 import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.data.models.model.TextureSlot;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+
 import java.util.*;
+import java.util.function.Function;
+
 import static dev.xn__z7x.polychrome.util.Materials.*;
 
 public class PolychromeBlocks{
-
   public static final ModelTemplate
     COLUMN = BlockModel.block("block/column", TextureSlot.SIDE, TextureSlot.END),
     PILASTER = BlockModel.block("block/pilaster", TextureSlot.SIDE, TextureSlot.END),
@@ -19,6 +24,23 @@ public class PolychromeBlocks{
     PERSIAN_BRACKET_BULL = BlockModel.block("block/persian_bracket_bull", TextureSlot.SIDE),
     PERSIAN_VOLUTE = BlockModel.block("block/persian_column_volute", TextureSlot.SIDE, TextureSlot.END, TextureSlot.LAYER0),
     PERSIAN_CAPITAL = BlockModel.block("block/persian_column_capital", TextureSlot.SIDE);
+
+  public static final Function<BlockBehaviour.Properties, Block>
+    PersianMerlonDeco = properties -> new XZConnectingBlock(properties, VoxelShapeUtils.connecting(
+      VoxelShapeUtils.combine(
+        Block.box(5, 11, 6, 11, 18, 10),
+        Block.box(0, 0, 6, 16, 4, 10),
+        Block.box(3, 4, 6, 13, 11, 10)
+      ),
+      VoxelShapeUtils.combine(
+        Block.box(6, 0, 6, 10, 4, 16),
+        Block.box(10, 0, 6, 16, 4, 10),
+        Block.box(6, 4, 6, 10, 11, 13),
+        Block.box(6, 11, 6, 10, 18, 11),
+        Block.box(10, 11, 6, 11, 18, 10),
+        Block.box(10, 4, 6, 13, 11, 10)
+      )
+    ));
 
   public static BlockModel
     columns = new BlockModel("column", "Column", Column::new, CONCRETE, STONES, WOODS)
@@ -39,7 +61,7 @@ public class PolychromeBlocks{
         .put(TextureSlot.SIDE,  Polychrome.id("block/" + material + "_column_fluting"))
         .put(TextureSlot.END,   Polychrome.id("block/" + material + "_column_top")))
       .withState("horizontal"),
-    persianMerlonsDeco = new BlockModel("persian_merlon_deco", "Decorative Persian Merlon", PersianMerlonDeco::new, CONCRETE, STONES)
+    persianMerlonsDeco = new BlockModel("persian_merlon_deco", "Decorative Persian Merlon", PersianMerlonDeco, CONCRETE, STONES)
       .withModel(Map.of(
           "straight", PERSIAN_MERLON_DECO_STRAIGHT,
           "corner", PERSIAN_MERLON_DECO_CORNER),

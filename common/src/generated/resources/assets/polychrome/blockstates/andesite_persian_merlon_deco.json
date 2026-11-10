@@ -2,19 +2,19 @@
   "variants": {
     "facing=east,shape=inner_left": {
       "model": "polychrome:block/andesite_persian_merlon_deco_corner",
-      "y": 90
+      "y": 270
     },
     "facing=east,shape=inner_right": {
       "model": "polychrome:block/andesite_persian_merlon_deco_corner",
-      "y": 180
+      "y": 0
     },
     "facing=east,shape=outer_left": {
       "model": "polychrome:block/andesite_persian_merlon_deco_corner",
-      "y": 270
+      "y": 90
     },
     "facing=east,shape=outer_right": {
       "model": "polychrome:block/andesite_persian_merlon_deco_corner",
-      "y": 0
+      "y": 180
     },
     "facing=east,shape=straight": {
       "model": "polychrome:block/andesite_persian_merlon_deco",
@@ -22,19 +22,19 @@
     },
     "facing=north,shape=inner_left": {
       "model": "polychrome:block/andesite_persian_merlon_deco_corner",
-      "y": 0
+      "y": 180
     },
     "facing=north,shape=inner_right": {
       "model": "polychrome:block/andesite_persian_merlon_deco_corner",
-      "y": 90
+      "y": 270
     },
     "facing=north,shape=outer_left": {
       "model": "polychrome:block/andesite_persian_merlon_deco_corner",
-      "y": 180
+      "y": 0
     },
     "facing=north,shape=outer_right": {
       "model": "polychrome:block/andesite_persian_merlon_deco_corner",
-      "y": 270
+      "y": 90
     },
     "facing=north,shape=straight": {
       "model": "polychrome:block/andesite_persian_merlon_deco",
@@ -42,19 +42,19 @@
     },
     "facing=south,shape=inner_left": {
       "model": "polychrome:block/andesite_persian_merlon_deco_corner",
-      "y": 180
+      "y": 0
     },
     "facing=south,shape=inner_right": {
       "model": "polychrome:block/andesite_persian_merlon_deco_corner",
-      "y": 270
+      "y": 90
     },
     "facing=south,shape=outer_left": {
       "model": "polychrome:block/andesite_persian_merlon_deco_corner",
-      "y": 0
+      "y": 180
     },
     "facing=south,shape=outer_right": {
       "model": "polychrome:block/andesite_persian_merlon_deco_corner",
-      "y": 90
+      "y": 270
     },
     "facing=south,shape=straight": {
       "model": "polychrome:block/andesite_persian_merlon_deco",
@@ -62,19 +62,19 @@
     },
     "facing=west,shape=inner_left": {
       "model": "polychrome:block/andesite_persian_merlon_deco_corner",
-      "y": 270
+      "y": 90
     },
     "facing=west,shape=inner_right": {
       "model": "polychrome:block/andesite_persian_merlon_deco_corner",
-      "y": 0
+      "y": 180
     },
     "facing=west,shape=outer_left": {
       "model": "polychrome:block/andesite_persian_merlon_deco_corner",
-      "y": 90
+      "y": 270
     },
     "facing=west,shape=outer_right": {
       "model": "polychrome:block/andesite_persian_merlon_deco_corner",
-      "y": 180
+      "y": 0
     },
     "facing=west,shape=straight": {
       "model": "polychrome:block/andesite_persian_merlon_deco",

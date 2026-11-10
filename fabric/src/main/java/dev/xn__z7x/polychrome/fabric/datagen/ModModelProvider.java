@@ -1,6 +1,6 @@
 package dev.xn__z7x.polychrome.fabric.datagen;
 
-import dev.xn__z7x.polychrome.block.ModBlocks;
+import dev.xn__z7x.polychrome.block.PolychromeBlocks;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.data.models.BlockModelGenerators;
@@ -11,8 +11,8 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.HashMap;
 import java.util.Map;
 
-import static dev.xn__z7x.polychrome.api.BlockStateGenerators.CONNECTING;
-import static dev.xn__z7x.polychrome.api.BlockStateGenerators.CONNECTING_S;
+import static dev.xn__z7x.polychrome.util.BlockStateGenerators.CONNECTING;
+import static dev.xn__z7x.polychrome.util.BlockStateGenerators.CONNECTING_S;
 
 public class ModModelProvider extends FabricModelProvider{
   public ModModelProvider(FabricDataOutput output){
@@ -21,7 +21,7 @@ public class ModModelProvider extends FabricModelProvider{
 
   @Override
   public void generateBlockStateModels(BlockModelGenerators generator){
-    for(var blocks : ModBlocks.blocks){
+    for(var blocks : PolychromeBlocks.blocks){
       blocks.forEachBlock((material, block) -> {
         TextureMapping mapping = blocks.mappingFunction.apply(material);
 

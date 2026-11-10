@@ -1,7 +1,6 @@
-package dev.xn__z7x.polychrome.block;
+package dev.xn__z7x.polychrome.util;
 
 import dev.xn__z7x.polychrome.Polychrome;
-import dev.xn__z7x.polychrome.api.Materials;
 import net.blay09.mods.balm.world.level.block.BalmBlockRegistrar;
 import net.blay09.mods.balm.world.level.block.BalmBlockRegistration;
 import net.blay09.mods.balm.world.level.block.DeferredBlock;
@@ -19,7 +18,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public class Model{
+public class BlockModel{
   public static ModelTemplate block(String parent, TextureSlot... requiredTextureKeys) {
     return new ModelTemplate(Optional.of(Polychrome.id(parent)), Optional.empty(), requiredTextureKeys);
   }
@@ -43,9 +42,9 @@ public class Model{
     return material -> new TextureMapping().put(TextureSlot.SIDE, Polychrome.id("block/" + material + "_" + name));
   }
 
-  public Model(String name, String displayName,
-               Function<BlockBehaviour.Properties, Block> constructor,
-               String[]... materials){
+  public BlockModel(String name, String displayName,
+                    Function<BlockBehaviour.Properties, Block> constructor,
+                    String[]... materials){
     this.name = name;
     this.displayName = displayName;
     this.constructor = constructor;
@@ -63,25 +62,25 @@ public class Model{
     }
   }
 
-  public Model withProperties(Function<BlockBehaviour.Properties, BlockBehaviour.Properties> propertiesBuilder){
+  public BlockModel withProperties(Function<BlockBehaviour.Properties, BlockBehaviour.Properties> propertiesBuilder){
     this.propertiesBuilder = propertiesBuilder;
     return this;
   }
-  public Model withModel(ModelTemplate model){
+  public BlockModel withModel(ModelTemplate model){
     this.models.put("base", model);
     return this;
   }
-  public Model withModel(ModelTemplate model, Function<String, TextureMapping> mappingFunction){
+  public BlockModel withModel(ModelTemplate model, Function<String, TextureMapping> mappingFunction){
     this.models.put("base", model);
     this.mappingFunction = mappingFunction;
     return this;
   }
-  public Model withModel(Map<String, ModelTemplate> models, Function<String, TextureMapping> mappingFunction){
+  public BlockModel withModel(Map<String, ModelTemplate> models, Function<String, TextureMapping> mappingFunction){
     this.models = models;
     this.mappingFunction = mappingFunction;
     return this;
   }
-  public Model withState(String stateBuilder){
+  public BlockModel withState(String stateBuilder){
     this.stateBuilder = stateBuilder;
     return this;
   }

@@ -1,4 +1,4 @@
-package dev.xn__z7x.polychrome.api;
+package dev.xn__z7x.polychrome.util;
 
 import net.minecraft.data.models.blockstates.BlockStateGenerator;
 import net.minecraft.data.models.blockstates.MultiVariantGenerator;
@@ -31,22 +31,26 @@ public class BlockStateGenerators{
       .select(EAST, STRAIGHT, Variant.variant().with(MODEL, models.get("straight")).with(Y_ROT, R90))
       .select(SOUTH, STRAIGHT, Variant.variant().with(MODEL, models.get("straight")).with(Y_ROT, R180))
       .select(WEST, STRAIGHT, Variant.variant().with(MODEL, models.get("straight")).with(Y_ROT, R270))
-      .select(NORTH, INNER_LEFT, Variant.variant().with(MODEL, models.get("inner")).with(Y_ROT, R0))
-      .select(EAST, INNER_LEFT, Variant.variant().with(MODEL, models.get("inner")).with(Y_ROT, R90))
-      .select(SOUTH, INNER_LEFT, Variant.variant().with(MODEL, models.get("inner")).with(Y_ROT, R180))
-      .select(WEST, INNER_LEFT, Variant.variant().with(MODEL, models.get("inner")).with(Y_ROT, R270))
-      .select(NORTH, INNER_RIGHT, Variant.variant().with(MODEL, models.get("inner")).with(Y_ROT, R90))
-      .select(EAST, INNER_RIGHT, Variant.variant().with(MODEL, models.get("inner")).with(Y_ROT, R180))
-      .select(SOUTH, INNER_RIGHT, Variant.variant().with(MODEL, models.get("inner")).with(Y_ROT, R270))
-      .select(WEST, INNER_RIGHT, Variant.variant().with(MODEL, models.get("inner")).with(Y_ROT, R0))
-      .select(NORTH, OUTER_LEFT, Variant.variant().with(MODEL, models.get("outer")).with(Y_ROT, R180))
-      .select(EAST, OUTER_LEFT, Variant.variant().with(MODEL, models.get("outer")).with(Y_ROT, R270))
-      .select(SOUTH, OUTER_LEFT, Variant.variant().with(MODEL, models.get("outer")).with(Y_ROT, R0))
-      .select(WEST, OUTER_LEFT, Variant.variant().with(MODEL, models.get("outer")).with(Y_ROT, R90))
-      .select(NORTH, OUTER_RIGHT, Variant.variant().with(MODEL, models.get("outer")).with(Y_ROT, R270))
-      .select(EAST, OUTER_RIGHT, Variant.variant().with(MODEL, models.get("outer")).with(Y_ROT, R0))
-      .select(SOUTH, OUTER_RIGHT, Variant.variant().with(MODEL, models.get("outer")).with(Y_ROT, R90))
-      .select(WEST, OUTER_RIGHT, Variant.variant().with(MODEL, models.get("outer")).with(Y_ROT, R180))
+
+      .select(NORTH, INNER_LEFT, Variant.variant().with(MODEL, models.get("inner")).with(Y_ROT, R180))
+      .select(EAST, INNER_LEFT, Variant.variant().with(MODEL, models.get("inner")).with(Y_ROT, R270))
+      .select(SOUTH, INNER_LEFT, Variant.variant().with(MODEL, models.get("inner")).with(Y_ROT, R0))
+      .select(WEST, INNER_LEFT, Variant.variant().with(MODEL, models.get("inner")).with(Y_ROT, R90))
+
+      .select(NORTH, INNER_RIGHT, Variant.variant().with(MODEL, models.get("inner")).with(Y_ROT, R270))
+      .select(EAST, INNER_RIGHT, Variant.variant().with(MODEL, models.get("inner")).with(Y_ROT, R0))
+      .select(SOUTH, INNER_RIGHT, Variant.variant().with(MODEL, models.get("inner")).with(Y_ROT, R90))
+      .select(WEST, INNER_RIGHT, Variant.variant().with(MODEL, models.get("inner")).with(Y_ROT, R180))
+
+      .select(NORTH, OUTER_LEFT, Variant.variant().with(MODEL, models.get("outer")).with(Y_ROT, R0))
+      .select(EAST, OUTER_LEFT, Variant.variant().with(MODEL, models.get("outer")).with(Y_ROT, R90))
+      .select(SOUTH, OUTER_LEFT, Variant.variant().with(MODEL, models.get("outer")).with(Y_ROT, R180))
+      .select(WEST, OUTER_LEFT, Variant.variant().with(MODEL, models.get("outer")).with(Y_ROT, R270))
+
+      .select(NORTH, OUTER_RIGHT, Variant.variant().with(MODEL, models.get("outer")).with(Y_ROT, R90))
+      .select(EAST, OUTER_RIGHT, Variant.variant().with(MODEL, models.get("outer")).with(Y_ROT, R180))
+      .select(SOUTH, OUTER_RIGHT, Variant.variant().with(MODEL, models.get("outer")).with(Y_ROT, R270))
+      .select(WEST, OUTER_RIGHT, Variant.variant().with(MODEL, models.get("outer")).with(Y_ROT, R0))
     ),
     CONNECTING_S = (block, models) -> CONNECTING.apply(block, Map.of(
       "straight", models.get("straight"),

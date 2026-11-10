@@ -1,6 +1,6 @@
 package dev.xn__z7x.polychrome.fabric.datagen;
 
-import dev.xn__z7x.polychrome.api.Materials;
+import dev.xn__z7x.polychrome.util.Materials;
 import net.blay09.mods.balm.world.level.block.DeferredBlock;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -8,10 +8,8 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.SingleItemRecipeBuilder;
-import net.minecraft.world.item.Items;
 import dev.xn__z7x.polychrome.Polychrome;
-import dev.xn__z7x.polychrome.block.ModBlocks;
-import dev.xn__z7x.polychrome.item.ModItems;
+import dev.xn__z7x.polychrome.block.PolychromeBlocks;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.concurrent.CompletableFuture;
@@ -35,7 +33,7 @@ public class ModRecipeProvider extends FabricRecipeProvider{
 
   @Override
   public void buildRecipes(RecipeOutput exporter){
-    for(var blocks : ModBlocks.blocks){
+    for(var blocks : PolychromeBlocks.blocks){
       blocks.forEach((material, block) -> stonecutting(material, block, exporter));
     }
   }

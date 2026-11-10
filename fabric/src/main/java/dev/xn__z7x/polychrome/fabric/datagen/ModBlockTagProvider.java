@@ -3,8 +3,6 @@ package dev.xn__z7x.polychrome.fabric.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
-import dev.xn__z7x.polychrome.block.ModBlocks;
-import dev.xn__z7x.polychrome.tag.ModBlockTags;
 
 import java.util.concurrent.CompletableFuture;
 

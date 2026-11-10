@@ -1,4 +1,4 @@
-package dev.xn__z7x.polychrome.api;
+package dev.xn__z7x.polychrome.util;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -31,7 +31,6 @@ public class Materials{
       case "sandstone"        -> Blocks.SANDSTONE;
       case "quartz"           -> Blocks.QUARTZ_BLOCK;
       case "andesite"         -> Blocks.ANDESITE;
-      case "stone"            -> Blocks.STONE;
       case "tuff"             -> Blocks.TUFF;
       case "deepslate"        -> Blocks.DEEPSLATE;
       case "birch"            -> Blocks.BIRCH_LOG;

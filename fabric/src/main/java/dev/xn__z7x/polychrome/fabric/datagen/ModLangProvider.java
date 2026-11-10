@@ -1,7 +1,7 @@
 package dev.xn__z7x.polychrome.fabric.datagen;
 
-import dev.xn__z7x.polychrome.api.Materials;
-import dev.xn__z7x.polychrome.block.ModBlocks;
+import dev.xn__z7x.polychrome.util.Materials;
+import dev.xn__z7x.polychrome.block.PolychromeBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
@@ -23,7 +23,7 @@ public class ModLangProvider extends FabricLanguageProvider {
     } catch(IOException e) {
       throw new RuntimeException("Failed to add existing language file", e);
     }
-    for(var blocks : ModBlocks.blocks){
+    for(var blocks : PolychromeBlocks.blocks){
       blocks.forEachBlock((material, block) -> builder.add(block, Materials.asString(material) + " " + blocks.displayName));
     }
   }

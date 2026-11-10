@@ -6,8 +6,13 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
 import net.minecraft.data.models.model.TextureMapping;
+import net.minecraft.resources.ResourceLocation;
 
+import java.util.HashMap;
 import java.util.Map;
+
+import static dev.xn__z7x.polychrome.api.BlockStateGenerators.CONNECTING;
+import static dev.xn__z7x.polychrome.api.BlockStateGenerators.CONNECTING_S;
 
 public class ModModelProvider extends FabricModelProvider{
   public ModModelProvider(FabricDataOutput output){
@@ -20,30 +25,14 @@ public class ModModelProvider extends FabricModelProvider{
       blocks.forEachBlock((material, block) -> {
         TextureMapping mapping = blocks.mappingFunction.apply(material);
 
+        Map<String, ResourceLocation> models = new HashMap<>();
+        blocks.models.forEach((state, model) -> models.put(state, model.create(block, mapping, generator.modelOutput)));
+
         switch(blocks.stateBuilder){
-          case "horizontal" -> {
-            blocks.models.get("base").create(block, mapping, generator.modelOutput);
-            generator.createNonTemplateHorizontalBlock(block);
-          }
-          case "connector_s" -> {
-            var corner = blocks.models.get("corner").create(block, mapping, generator.modelOutput);
-            generator.blockStateOutput.accept(ModBlocks.STATE_CONNECTING.apply(block, Map.of(
-              "straight", blocks.models.get("straight").create(block, mapping, generator.modelOutput),
-              "inner", corner,
-              "outer", corner
-            )));
-          }
-          case "connector" -> {
-            generator.blockStateOutput.accept(ModBlocks.STATE_CONNECTING.apply(block, Map.of(
-              "straight", blocks.models.get("straight").create(block, mapping, generator.modelOutput),
-              "inner", blocks.models.get("inner").create(block, mapping, generator.modelOutput),
-              "outer", blocks.models.get("outer").create(block, mapping, generator.modelOutput)
-            )));
-          }
-          default -> {
-            blocks.models.get("base").create(block, mapping, generator.modelOutput);
-            generator.createNonTemplateModelBlock(block);
-          }
+          case "horizontal" -> generator.createNonTemplateHorizontalBlock(block);
+          case "connector_s" -> generator.blockStateOutput.accept(CONNECTING_S.apply(block, models));
+          case "connector" -> generator.blockStateOutput.accept(CONNECTING.apply(block, models));
+          default -> generator.createNonTemplateModelBlock(block);
         }
       });
     }

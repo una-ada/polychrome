@@ -1,8 +1,0 @@
-{
-  "parent": "polychrome:block/persian_column_volute",
-  "textures": {
-    "end": "polychrome:block/andesite_column_top",
-    "layer0": "polychrome:block/andesite_volute",
-    "side": "polychrome:block/andesite_column_fluting"
-  }
-}

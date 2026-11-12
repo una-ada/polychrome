@@ -1,0 +1,7 @@
+{
+  "parent": "polychrome:block/column",
+  "textures": {
+    "end": "polychrome:block/calcite/column_top",
+    "side": "polychrome:block/calcite/column_fluting"
+  }
+}

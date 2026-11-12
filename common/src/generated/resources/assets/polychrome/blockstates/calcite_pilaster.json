@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "polychrome:block/calcite_pilaster",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "polychrome:block/calcite_pilaster"
+    },
+    "facing=south": {
+      "model": "polychrome:block/calcite_pilaster",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "polychrome:block/calcite_pilaster",
+      "y": 270
+    }
+  }
+}

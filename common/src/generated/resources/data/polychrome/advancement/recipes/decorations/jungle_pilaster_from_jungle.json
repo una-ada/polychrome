@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_jungle": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:stripped_jungle_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "polychrome:jungle_pilaster_from_jungle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_jungle"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "polychrome:jungle_pilaster_from_jungle"
+    ]
+  }
+}

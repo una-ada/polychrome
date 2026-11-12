@@ -1,0 +1,8 @@
+{
+  "parent": "polychrome:block/persian_column_volute",
+  "textures": {
+    "end": "polychrome:block/blackstone/column_top",
+    "layer0": "polychrome:block/blackstone/volute",
+    "side": "polychrome:block/blackstone/column_fluting"
+  }
+}

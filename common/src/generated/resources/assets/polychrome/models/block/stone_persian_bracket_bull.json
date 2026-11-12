@@ -1,6 +1,6 @@
 {
   "parent": "polychrome:block/persian_bracket_bull",
   "textures": {
-    "side": "polychrome:block/stone_persian_bracket_bull"
+    "side": "polychrome:block/stone/persian_bracket_bull"
   }
 }

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "polychrome:block/blackstone_fluted_pilaster",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "polychrome:block/blackstone_fluted_pilaster"
+    },
+    "facing=south": {
+      "model": "polychrome:block/blackstone_fluted_pilaster",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "polychrome:block/blackstone_fluted_pilaster",
+      "y": 270
+    }
+  }
+}

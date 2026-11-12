@@ -7,6 +7,7 @@ import net.blay09.mods.balm.world.level.block.DeferredBlock;
 import net.minecraft.data.models.model.ModelTemplate;
 import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.data.models.model.TextureSlot;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
@@ -30,7 +31,7 @@ public class BlockModel{
   public Function<BlockBehaviour.Properties, Block> constructor;
   public Function<BlockBehaviour.Properties, BlockBehaviour.Properties> propertiesBuilder;
   public Map<String, ModelTemplate> models;
-  public Function<String, TextureMapping> mappingFunction;
+  public Function<String, Map<TextureSlot, ResourceLocation>> mappingFunction;
   public String stateBuilder;
   public String[] materials;
   public Map<String, DeferredBlock> deferredBlocks;
@@ -38,8 +39,8 @@ public class BlockModel{
   public static Function<BlockBehaviour.Properties, BlockBehaviour.Properties> defaultPropertiesBuilder = it -> it;
   public Map<String, ModelTemplate> defaultModel = new HashMap<>();
   public static String defaultStateBuilder = "model";
-  public static Function<String, TextureMapping> defaultMappingFunction(String name){
-    return material -> new TextureMapping().put(TextureSlot.SIDE, Polychrome.id("block/" + material + "_" + name));
+  public static Function<String, Map<TextureSlot, ResourceLocation>> defaultMappingFunction(String name){
+    return material -> Map.of(TextureSlot.SIDE, Polychrome.id("block/" + material + "/" + name));
   }
 
   public BlockModel(String name, String displayName,
@@ -70,12 +71,12 @@ public class BlockModel{
     this.models.put("base", model);
     return this;
   }
-  public BlockModel withModel(ModelTemplate model, Function<String, TextureMapping> mappingFunction){
+  public BlockModel withModel(ModelTemplate model, Function<String, Map<TextureSlot, ResourceLocation>> mappingFunction){
     this.models.put("base", model);
     this.mappingFunction = mappingFunction;
     return this;
   }
-  public BlockModel withModel(Map<String, ModelTemplate> models, Function<String, TextureMapping> mappingFunction){
+  public BlockModel withModel(Map<String, ModelTemplate> models, Function<String, Map<TextureSlot, ResourceLocation>> mappingFunction){
     this.models = models;
     this.mappingFunction = mappingFunction;
     return this;
@@ -97,6 +98,11 @@ public class BlockModel{
 
   public DeferredBlock get(String material){
     return deferredBlocks.get(material);
+  }
+  public TextureMapping getTextureMap(String material){
+    TextureMapping map = new TextureMapping();
+    mappingFunction.apply(material).forEach(map::put);
+    return map;
   }
   public void put(String material, BalmBlockRegistration block){
     deferredBlocks.put(material, block.withDefaultItem().asDeferredBlock());

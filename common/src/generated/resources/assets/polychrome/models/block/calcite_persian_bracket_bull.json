@@ -1,0 +1,6 @@
+{
+  "parent": "polychrome:block/persian_bracket_bull",
+  "textures": {
+    "side": "polychrome:block/calcite/persian_bracket_bull"
+  }
+}

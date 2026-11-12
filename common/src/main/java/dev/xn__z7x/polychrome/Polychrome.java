@@ -1,6 +1,8 @@
 package dev.xn__z7x.polychrome;
 
+import dev.xn__z7x.polychrome.block.ResourceProvider;
 import net.blay09.mods.balm.api.Balm;
+import net.mehvahdjukaar.moonlight.api.platform.RegHelper;
 import net.minecraft.resources.ResourceLocation;
 import net.blay09.mods.balm.core.BalmRegistrars;
 import org.slf4j.Logger;
@@ -28,6 +30,8 @@ public class Polychrome{
     registrars.blocks(PolychromeBlocks::initialize);
     registrars.items(ModItems::initialize);
     registrars.creativeModeTabs(ModItems::initialize);
+
+    RegHelper.registerDynamicResourceProvider(new ResourceProvider());
   }
 
 }

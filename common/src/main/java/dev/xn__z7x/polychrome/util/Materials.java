@@ -5,6 +5,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.Arrays;
+import java.util.Map;
+
+import static java.util.Map.entry;
 
 public class Materials{
   public static String[]
@@ -13,33 +16,51 @@ public class Materials{
     CONCRETE   = {"concrete"},
     COPPER     = {"copper", "exposed_copper", "weathered_copper", "oxidized_copper"},
     POLYCHROME = {"polychrome"},
-    STONES     = {"sandstone", "quartz", "andesite", "stone", "tuff", "deepslate"},
-    WOODS      = {"birch", "oak", "spruce", "dark_oak", "mangrove"};
+    STONES     = {"sandstone", "stone", "deepslate", "calcite", "tuff", "dripstone", "blackstone", "quartz"},
+    WOODS      = {"oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove", "cherry", "bamboo"};
+
+  public static Map<String, Block> blockMap = Map.ofEntries(
+    entry("gold", Blocks.GOLD_BLOCK),
+
+    entry("concrete", Blocks.LIGHT_GRAY_CONCRETE),
+
+    entry("copper", Blocks.COPPER_BLOCK),
+    entry("exposed_copper", Blocks.EXPOSED_COPPER),
+    entry("weathered_copper", Blocks.WEATHERED_COPPER),
+    entry("oxidized_copper", Blocks.OXIDIZED_COPPER),
+
+    entry("polychrome", Blocks.CYAN_WOOL),
+
+    entry("sandstone", Blocks.SANDSTONE),
+    entry("stone", Blocks.STONE),
+    entry("deepslate", Blocks.DEEPSLATE),
+    entry("calcite", Blocks.CALCITE),
+    entry("tuff", Blocks.TUFF),
+    entry("dripstone", Blocks.DRIPSTONE_BLOCK),
+    entry("blackstone", Blocks.BLACKSTONE),
+    entry("quartz", Blocks.QUARTZ_BLOCK),
+
+    entry("oak", Blocks.STRIPPED_OAK_LOG),
+    entry("spruce", Blocks.STRIPPED_SPRUCE_LOG),
+    entry("birch", Blocks.STRIPPED_BIRCH_LOG),
+    entry("jungle", Blocks.STRIPPED_JUNGLE_LOG),
+    entry("acacia", Blocks.STRIPPED_ACACIA_LOG),
+    entry("dark_oak", Blocks.STRIPPED_DARK_OAK_LOG),
+    entry("mangrove", Blocks.STRIPPED_MANGROVE_LOG),
+    entry("cherry", Blocks.STRIPPED_CHERRY_LOG),
+    entry("bamboo", Blocks.BAMBOO_MOSAIC)
+  );
 
   public static String[] list(String[]... materials){
     return Arrays.stream(materials).flatMap(Arrays::stream).toArray(String[]::new);
   }
 
+  public static String[] all(){
+    return list(GOLD, CONCRETE, COPPER, STONES, WOODS);
+  }
+
   public static Block asBlock(String material){
-    return switch(material){
-      case "gold"             -> Blocks.GOLD_BLOCK;
-      case "concrete"         -> Blocks.LIGHT_GRAY_CONCRETE;
-      case "copper"           -> Blocks.COPPER_BLOCK;
-      case "exposed_copper"   -> Blocks.EXPOSED_COPPER;
-      case "weathered_copper" -> Blocks.WEATHERED_COPPER;
-      case "oxidized_copper"  -> Blocks.OXIDIZED_COPPER;
-      case "sandstone"        -> Blocks.SANDSTONE;
-      case "quartz"           -> Blocks.QUARTZ_BLOCK;
-      case "andesite"         -> Blocks.ANDESITE;
-      case "tuff"             -> Blocks.TUFF;
-      case "deepslate"        -> Blocks.DEEPSLATE;
-      case "birch"            -> Blocks.BIRCH_LOG;
-      case "oak"              -> Blocks.OAK_LOG;
-      case "spruce"           -> Blocks.SPRUCE_LOG;
-      case "dark_oak"         -> Blocks.DARK_OAK_LOG;
-      case "mangrove"         -> Blocks.MANGROVE_LOG;
-      default                 -> Blocks.STONE;
-    };
+    return blockMap.get(material);
   }
 
   public static Item asItem(String material){
@@ -47,25 +68,15 @@ public class Materials{
   }
 
   public static String asString(String material){
-    return switch(material){
-      case "gold"             -> "Gilded";
-      case "concrete"         -> "Concrete";
-      case "copper"           -> "Copper";
-      case "exposed_copper"   -> "Exposed Copper";
-      case "weathered_copper" -> "Weathered Copper";
-      case "oxidized_copper"  -> "Oxidized Copper";
-      case "sandstone"        -> "Sandstone";
-      case "quartz"           -> "Quartz";
-      case "andesite"         -> "Andesite";
-      case "stone"            -> "Stone";
-      case "tuff"             -> "Tuff";
-      case "deepslate"        -> "Deepslate";
-      case "birch"            -> "Birch";
-      case "oak"              -> "Oak";
-      case "spruce"           -> "Spruce";
-      case "dark_oak"         -> "Dark Oak";
-      case "mangrove"         -> "Mangrove";
-      default                 -> "";
-    };
+    if(material == null || material.isEmpty()) return material;
+    String[] words = material.split("_");
+    StringBuilder result = new StringBuilder();
+    for(String word : words)
+      if(!word.isEmpty()) result
+        .append(Character.toUpperCase(word.charAt(0)))
+        .append(word.substring(1))
+        .append(" ");
+    return result.toString().trim();
   }
+
 }

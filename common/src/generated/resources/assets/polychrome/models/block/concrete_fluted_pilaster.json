@@ -1,7 +1,7 @@
 {
   "parent": "polychrome:block/pilaster",
   "textures": {
-    "end": "polychrome:block/concrete_column_top",
-    "side": "polychrome:block/concrete_column_fluting"
+    "end": "polychrome:block/concrete/column_top",
+    "side": "polychrome:block/concrete/column_fluting"
   }
 }

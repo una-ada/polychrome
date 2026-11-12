@@ -1,0 +1,7 @@
+{
+  "parent": "polychrome:block/column",
+  "textures": {
+    "end": "polychrome:block/acacia/column_top",
+    "side": "polychrome:block/acacia/column"
+  }
+}

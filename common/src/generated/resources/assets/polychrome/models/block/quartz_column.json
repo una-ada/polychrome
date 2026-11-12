@@ -1,7 +1,7 @@
 {
   "parent": "polychrome:block/column",
   "textures": {
-    "end": "polychrome:block/quartz_column_top",
-    "side": "polychrome:block/quartz_column"
+    "end": "polychrome:block/quartz/column_top",
+    "side": "polychrome:block/quartz/column"
   }
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "polychrome:block/pilaster",
+  "textures": {
+    "end": "polychrome:block/dripstone/column_top",
+    "side": "polychrome:block/dripstone/column_fluting"
+  }
+}

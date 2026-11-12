@@ -23,7 +23,7 @@ public class ModModelProvider extends FabricModelProvider{
   public void generateBlockStateModels(BlockModelGenerators generator){
     for(var blocks : PolychromeBlocks.blocks){
       blocks.forEachBlock((material, block) -> {
-        TextureMapping mapping = blocks.mappingFunction.apply(material);
+        TextureMapping mapping = blocks.getTextureMap(material);
 
         Map<String, ResourceLocation> models = new HashMap<>();
         blocks.models.forEach((state, model) -> models.put(state, model.create(block, mapping, generator.modelOutput)));

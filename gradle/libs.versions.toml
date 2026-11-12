@@ -11,6 +11,9 @@ fabricApi = "0.116.17+1.21.1"
 fabricLoader = "0.20.1"
 kuma = "21.0.8+1.21"
 
+moonlight = "1.21.1-3.8.0"
+codecui = "1.21.1-1.4.7"
+
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
 # Parchment adds human-readable names to parameters. You can find the latest version at: https://parchmentmc.org/docs/getting-started
@@ -28,6 +31,13 @@ neoForm = { module = "net.neoforged:neoform", version.ref = "neoForm" }
 neoForge = { module = "net.neoforged:neoforge", version.ref = "neoForge" }
 fabricApi = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabricApi" }
 fabricLoader = { module = "net.fabricmc:fabric-loader", version.ref = "fabricLoader" }
+
+moonlightCommon = { module = "net.mehvahdjukaar:moonlight-common", version.ref = "moonlight" }
+moonlightNeoForge = { module = "net.mehvahdjukaar:moonlight-neoforge", version.ref = "moonlight" }
+moonlightFabric = { module = "net.mehvahdjukaar:moonlight-fabric", version.ref = "moonlight" }
+
+codecuiNeoForge = { module = "net.mehvahdjukaar:codecui-neoforge", version.ref = "codecui" }
+codecuiFabric = { module = "net.mehvahdjukaar:codecui-fabric", version.ref = "codecui" }
 
 mixin = { module = "org.spongepowered:mixin", version = "0.8.7" }
 

@@ -1,7 +1,7 @@
 {
   "parent": "polychrome:block/pilaster",
   "textures": {
-    "end": "polychrome:block/tuff_column_top",
-    "side": "polychrome:block/tuff_column"
+    "end": "polychrome:block/tuff/column_top",
+    "side": "polychrome:block/tuff/column"
   }
 }

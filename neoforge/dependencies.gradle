@@ -7,4 +7,7 @@ dependencies {
     // You can add other dependencies here as well.
     // Note that CurseMaven and Modrinth Maven, while convenient, does not include transitive dependencies.
     // If you are getting errors about missing classes in dependencies, try using their respective Maven repositories directly instead.
+
+    implementation(libs.moonlightNeoForge)
+    runtimeOnly(libs.codecuiNeoForge)
 }

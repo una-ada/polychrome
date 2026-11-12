@@ -22,7 +22,12 @@ repositories {
             includeGroup "mezz.jei"
         }
     }
-	
+
+    maven {
+        name = 'MehVahdJukaar'
+        url = 'https://registry.somethingcatchy.net/repository/maven-public/'
+    }
+
     exclusiveContent {
         forRepository {
             maven {

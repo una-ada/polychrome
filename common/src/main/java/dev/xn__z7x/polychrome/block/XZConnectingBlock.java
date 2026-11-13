@@ -64,12 +64,16 @@ public class XZConnectingBlock extends Block{
   private static StairsShape getStairsShape(BlockState state, BlockGetter level, BlockPos pos){
     final Direction facing = state.getValue(FACING);
     final BlockState behind = level.getBlockState(pos.relative(facing));
-    if(isConnector(behind) && canTakeShape(state, level, pos, behind.getValue(FACING).getOpposite())){
+    if(isConnector(behind)
+      && behind.getValue(FACING).getAxis() != facing.getAxis()
+      && canTakeShape(state, level, pos, behind.getValue(FACING).getOpposite())){
       if(behind.getValue(FACING) == facing.getCounterClockWise()) return StairsShape.OUTER_LEFT;
       return StairsShape.OUTER_RIGHT;
     }
     final BlockState front = level.getBlockState(pos.relative(facing.getOpposite()));
-    if(isConnector(front) && canTakeShape(state, level, pos, front.getValue(FACING))){
+    if(isConnector(front)
+      && front.getValue(FACING).getAxis() != facing.getAxis()
+      && canTakeShape(state, level, pos, front.getValue(FACING))){
       if(front.getValue(FACING) == facing.getCounterClockWise()) return StairsShape.INNER_LEFT;
       return StairsShape.INNER_RIGHT;
     }

@@ -19,15 +19,33 @@ public class PolychromeBlocks{
   public static final ModelTemplate
     COLUMN = BlockModel.block("block/column", TextureSlot.SIDE, TextureSlot.END),
     PILASTER = BlockModel.block("block/pilaster", TextureSlot.SIDE, TextureSlot.END),
+    SIMPLE_MOULDING_STRAIGHT = BlockModel.block("block/simple_moulding", TextureSlot.SIDE, TextureSlot.END),
+    SIMPLE_MOULDING_INNER = BlockModel.block("block/simple_moulding_inner", "_inner", TextureSlot.SIDE, TextureSlot.END),
+    SIMPLE_MOULDING_OUTER = BlockModel.block("block/simple_moulding_outer", "_outer", TextureSlot.SIDE, TextureSlot.END),
     PERSIAN_MERLON_DECO_STRAIGHT = BlockModel.block("block/persian_merlon_deco_straight", TextureSlot.SIDE),
     PERSIAN_MERLON_DECO_CORNER = BlockModel.block("block/persian_merlon_deco_corner", "_corner", TextureSlot.SIDE),
     PERSIAN_BRACKET_BULL = BlockModel.block("block/persian_bracket_bull", TextureSlot.SIDE),
     PERSIAN_VOLUTE = BlockModel.block("block/persian_column_volute", TextureSlot.SIDE, TextureSlot.END, TextureSlot.LAYER0),
     PERSIAN_CAPITAL = BlockModel.block("block/persian_column_capital", TextureSlot.SIDE);
 
+  public static final Map<String, ModelTemplate>
+    SIMPLE_MOULDING = Map.of(
+      "straight", SIMPLE_MOULDING_STRAIGHT,
+      "inner", SIMPLE_MOULDING_INNER,
+      "outer", SIMPLE_MOULDING_OUTER
+    );
+
   public static final Function<BlockBehaviour.Properties, Block>
     Column = properties -> new BasicBlock(properties, box(2.0, 0.0, 2.0, 14.0, 16.0, 14.0)),
     Pilaster = properties -> new XZRotatingBlock(properties, VoxelShapeUtils.horizontal(box(2, 0, 0, 14, 16, 6))),
+    SimpleMoulding = properties -> new XZWrappingBlock(properties, VoxelShapeUtils.connecting(
+      box(0, 0, 0, 16, 16, 8),
+      VoxelShapeUtils.combine(
+        box(0, 0, 8, 8, 16, 16),
+        box(0, 0, 0, 16, 16, 8)
+      ),
+      box(0, 0, 0, 8, 16, 8)
+    )),
     PersianBracket = properties -> new XZRotatingBlock(properties, VoxelShapeUtils.horizontal(
       VoxelShapeUtils.combine(
         box(3.0, 0.0, -8.0, 13.0, 8.0, 10.0),
@@ -149,7 +167,12 @@ public class PolychromeBlocks{
         TextureSlot.END,    Polychrome.id("block/" + material + "/column_top"),
         TextureSlot.LAYER0, Polychrome.id("block/" + material + "/volute"))),
     persianCapitals = new BlockModel("persian_column_capital", "Persian Column Capital", PersianCapital, CONCRETE, STONES)
-      .withModel(PERSIAN_CAPITAL, BlockModel.defaultMappingFunction("persian_capital"));
+      .withModel(PERSIAN_CAPITAL, BlockModel.defaultMappingFunction("persian_capital")),
+    persianReliefLions = new BlockModel("persian_relief_lion", "Persian Relief Lion", SimpleMoulding, CONCRETE, STONES)
+      .withModel(SIMPLE_MOULDING, material -> Map.of(
+        TextureSlot.SIDE, Polychrome.id("block/" + material + "/persian_relief_lion"),
+        TextureSlot.END, Polychrome.id("block/" + material + "/blank")))
+      .withState("connector");
 
   public static BlockModel[] blocks = new BlockModel[]{
     columns,
@@ -157,6 +180,7 @@ public class PolychromeBlocks{
     pilasters,
     flutedPilasters,
     persianMerlonsDeco,
+    persianReliefLions,
     persianBracketsBull,
     persianVolutes,
     persianCapitals

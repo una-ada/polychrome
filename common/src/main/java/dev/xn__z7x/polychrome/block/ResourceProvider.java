@@ -43,17 +43,18 @@ public class ResourceProvider extends DynamicClientResourceProvider{
       for(var model : PolychromeBlocks.blocks){
         Map<TextureSlot, ResourceLocation> map = model.mappingFunction.apply("template");
         map.forEach((slot, template) -> {
-          try(TextureImage base = TextureImage.open(manager, template)){
-            Respriter respriter = Respriter.of(base);
-            model.forEach((material, block) -> {
-              ResourceLocation outputUri = model.mappingFunction.apply(material).get(slot);
-              if(!sink.alreadyHasAssetAtLocation(manager, outputUri) && !Objects.equals(material, "polychrome")){
-                sink.addTexture(outputUri, respriter.recolor(sources.get(material)));
-              }
-            });
-          } catch(Exception err) {
-            throw new IllegalStateException(err);
-          }
+          //if(!template.getNamespace().equals("minecraft"))
+            try(TextureImage base = TextureImage.open(manager, template)){
+              Respriter respriter = Respriter.of(base);
+              model.forEach((material, block) -> {
+                ResourceLocation outputUri = model.mappingFunction.apply(material).get(slot);
+                if(!sink.alreadyHasAssetAtLocation(manager, outputUri) && !Objects.equals(material, "polychrome")){
+                  sink.addTexture(outputUri, respriter.recolor(sources.get(material)));
+                }
+              });
+            } catch(Exception err) {
+              throw new IllegalStateException(err);
+            }
         });
       }
     }));

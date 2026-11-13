@@ -1,0 +1,7 @@
+{
+  "parent": "polychrome:block/simple_moulding",
+  "textures": {
+    "end": "polychrome:block/tuff/blank",
+    "side": "polychrome:block/tuff/persian_relief_lion"
+  }
+}

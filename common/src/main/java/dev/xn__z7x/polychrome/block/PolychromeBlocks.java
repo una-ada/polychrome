@@ -5,7 +5,6 @@ import dev.xn__z7x.polychrome.util.BlockModel;
 import dev.xn__z7x.polychrome.util.VoxelShapeUtils;
 import net.blay09.mods.balm.world.level.block.BalmBlockRegistrar;
 import net.minecraft.data.models.model.ModelTemplate;
-import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.data.models.model.TextureSlot;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -100,7 +99,7 @@ public class PolychromeBlocks{
       Block.box(13, 22, 6, 16, 23, 10),
       Block.box(3, 23, 3, 13, 24, 13)
     )),
-    PersianMerlonDeco = properties -> new XZConnectingBlock(properties, VoxelShapeUtils.connecting(
+    PersianMerlonDeco = properties -> new XZWrappingBlock(properties, VoxelShapeUtils.connecting(
       VoxelShapeUtils.combine(
         box(5, 11, 6, 11, 18, 10),
         box(0, 0, 6, 16, 4, 10),

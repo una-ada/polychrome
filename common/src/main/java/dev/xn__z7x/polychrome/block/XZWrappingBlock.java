@@ -22,13 +22,13 @@ import org.jetbrains.annotations.Nullable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class XZConnectingBlock extends Block{
+public class XZWrappingBlock extends Block{
   // public static final MapCodec<XZConnectingBlock> CODEC = simpleCodec(XZConnectingBlock::new);
   public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
   public static final EnumProperty<StairsShape> SHAPE = BlockStateProperties.STAIRS_SHAPE;
   public Map<StairsShape, Map<Direction, VoxelShape>> VOXEL_SHAPES;
 
-  protected XZConnectingBlock(Properties properties, Map<StairsShape, Map<Direction, VoxelShape>> voxelShapes) {
+  protected XZWrappingBlock(Properties properties, Map<StairsShape, Map<Direction, VoxelShape>> voxelShapes) {
     super(properties);
     this.VOXEL_SHAPES = voxelShapes;
     this.registerDefaultState(this.getStateDefinition().any()
@@ -86,7 +86,7 @@ public class XZConnectingBlock extends Block{
   }
 
   private static boolean isConnector(BlockState state) {
-    return state.getBlock() instanceof XZConnectingBlock;
+    return state.getBlock() instanceof XZWrappingBlock;
   }
 
   @Override

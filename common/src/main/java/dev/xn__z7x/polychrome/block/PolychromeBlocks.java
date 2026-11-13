@@ -134,41 +134,41 @@ public class PolychromeBlocks{
     ));
 
   public static BlockModel
-    columns = new BlockModel("column", "Column", Column, CONCRETE, STONES, WOODS)
+    columns = new BlockModel("column", "Column", Column, STONES, WOODS)
       .withModel(COLUMN, material -> Map.of(
         TextureSlot.SIDE,  Polychrome.id("block/" + material + "/column"),
         TextureSlot.END,   Polychrome.id("block/" + material + "/column_top"))),
-    flutedColumns = new BlockModel("fluted_column", "Fluted Column", Column, CONCRETE, STONES)
+    flutedColumns = new BlockModel("fluted_column", "Fluted Column", Column, STONES)
       .withModel(COLUMN, material -> Map.of(
         TextureSlot.SIDE,  Polychrome.id("block/" + material + "/column_fluting"),
         TextureSlot.END,   Polychrome.id("block/" + material + "/column_top"))),
-    pilasters = new BlockModel("pilaster", "Pilaster", Pilaster, CONCRETE, STONES, WOODS)
+    pilasters = new BlockModel("pilaster", "Pilaster", Pilaster, STONES, WOODS)
       .withModel(PILASTER, material -> Map.of(
         TextureSlot.SIDE,  Polychrome.id("block/" + material + "/column"),
         TextureSlot.END,   Polychrome.id("block/" + material + "/column_top")))
       .withState("horizontal"),
-    flutedPilasters = new BlockModel("fluted_pilaster", "Fluted Pilaster", Pilaster, CONCRETE, STONES)
+    flutedPilasters = new BlockModel("fluted_pilaster", "Fluted Pilaster", Pilaster, STONES)
       .withModel(PILASTER, material -> Map.of(
         TextureSlot.SIDE,  Polychrome.id("block/" + material + "/column_fluting"),
         TextureSlot.END,   Polychrome.id("block/" + material + "/column_top")))
       .withState("horizontal"),
-    persianMerlonsDeco = new BlockModel("persian_merlon_deco", "Decorative Persian Merlon", PersianMerlonDeco, CONCRETE, STONES)
+    persianMerlonsDeco = new BlockModel("persian_merlon_deco", "Decorative Persian Merlon", PersianMerlonDeco, STONES)
       .withModel(Map.of(
           "straight", PERSIAN_MERLON_DECO_STRAIGHT,
           "corner", PERSIAN_MERLON_DECO_CORNER),
         BlockModel.defaultMappingFunction("persian_merlon_deco"))
       .withState("connector_s"),
-    persianBracketsBull = new BlockModel("persian_bracket_bull", "Persian Bracket (Bull)", PersianBracket, CONCRETE, STONES)
+    persianBracketsBull = new BlockModel("persian_bracket_bull", "Persian Bracket (Bull)", PersianBracket, STONES)
       .withModel(PERSIAN_BRACKET_BULL)
       .withState("horizontal"),
-    persianVolutes = new BlockModel("persian_column_volute", "Persian Column Volute", PersianVolute, CONCRETE, STONES)
+    persianVolutes = new BlockModel("persian_column_volute", "Persian Column Volute", PersianVolute, STONES)
       .withModel(PERSIAN_VOLUTE, material -> Map.of(
         TextureSlot.SIDE,   Polychrome.id("block/" + material + "/column_fluting"),
         TextureSlot.END,    Polychrome.id("block/" + material + "/column_top"),
         TextureSlot.LAYER0, Polychrome.id("block/" + material + "/volute"))),
-    persianCapitals = new BlockModel("persian_column_capital", "Persian Column Capital", PersianCapital, CONCRETE, STONES)
+    persianCapitals = new BlockModel("persian_column_capital", "Persian Column Capital", PersianCapital, STONES)
       .withModel(PERSIAN_CAPITAL, BlockModel.defaultMappingFunction("persian_capital")),
-    persianReliefLions = new BlockModel("persian_relief_lion", "Persian Relief Lion", SimpleMoulding, CONCRETE, STONES)
+    persianReliefLions = new BlockModel("persian_relief_lion", "Persian Relief Lion", SimpleMoulding, STONES)
       .withModel(SIMPLE_MOULDING, material -> Map.of(
         TextureSlot.SIDE, Polychrome.id("block/" + material + "/persian_relief_lion"),
         TextureSlot.END, Polychrome.id("block/" + material + "/blank")))

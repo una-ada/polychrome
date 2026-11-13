@@ -13,7 +13,6 @@ public class Materials{
   public static String[]
     NONE       = {""},
     GOLD       = {"gold"},
-    CONCRETE   = {"concrete"},
     COPPER     = {"copper", "exposed_copper", "weathered_copper", "oxidized_copper"},
     POLYCHROME = {"polychrome"},
     STONES     = {"sandstone", "stone", "deepslate", "calcite", "tuff", "dripstone", "blackstone", "quartz"},
@@ -21,8 +20,6 @@ public class Materials{
 
   public static Map<String, Block> blockMap = Map.ofEntries(
     entry("gold", Blocks.GOLD_BLOCK),
-
-    entry("concrete", Blocks.LIGHT_GRAY_CONCRETE),
 
     entry("copper", Blocks.COPPER_BLOCK),
     entry("exposed_copper", Blocks.EXPOSED_COPPER),
@@ -56,7 +53,7 @@ public class Materials{
   }
 
   public static String[] all(){
-    return list(GOLD, CONCRETE, COPPER, STONES, WOODS);
+    return list(GOLD, COPPER, STONES, WOODS);
   }
 
   public static Block asBlock(String material){

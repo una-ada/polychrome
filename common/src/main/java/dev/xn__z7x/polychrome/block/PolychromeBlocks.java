@@ -27,8 +27,8 @@ public class PolychromeBlocks{
 
   public static final Function<BlockBehaviour.Properties, Block>
     Column = properties -> new BasicBlock(properties, box(2.0, 0.0, 2.0, 14.0, 16.0, 14.0)),
-    Pilaster = properties -> new HorizontalBlock(properties, VoxelShapeUtils.horizontal(box(2, 0, 0, 14, 16, 6))),
-    PersianBracket = properties -> new HorizontalBlock(properties, VoxelShapeUtils.horizontal(
+    Pilaster = properties -> new XZRotatingBlock(properties, VoxelShapeUtils.horizontal(box(2, 0, 0, 14, 16, 6))),
+    PersianBracket = properties -> new XZRotatingBlock(properties, VoxelShapeUtils.horizontal(
       VoxelShapeUtils.combine(
         box(3.0, 0.0, -8.0, 13.0, 8.0, 10.0),
         box(4.0, 8.0, -4.0, 12.0, 12.0, 13.0),

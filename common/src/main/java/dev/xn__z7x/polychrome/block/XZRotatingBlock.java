@@ -18,12 +18,12 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 
-public class HorizontalBlock extends Block {
+public class XZRotatingBlock extends Block {
   public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
   public Map<Direction, VoxelShape> voxelShapes;
 
-  public HorizontalBlock(Properties properties, Map<Direction, VoxelShape> shapes){
+  public XZRotatingBlock(Properties properties, Map<Direction, VoxelShape> shapes){
     super(properties);
     this.voxelShapes = shapes;
   }

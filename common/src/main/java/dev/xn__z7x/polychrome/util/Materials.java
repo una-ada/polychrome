@@ -15,7 +15,7 @@ public class Materials{
     GOLD       = {"gold"},
     COPPER     = {"copper", "exposed_copper", "weathered_copper", "oxidized_copper"},
     POLYCHROME = {"polychrome"},
-    STONES     = {"sandstone", "stone", "deepslate", "calcite", "tuff", "dripstone", "blackstone", "quartz"},
+    STONES     = {"sandstone", "stone", "deepslate", "tuff", "dripstone", "blackstone", "quartz"},
     WOODS      = {"oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove", "cherry", "bamboo"};
 
   public static Map<String, Block> blockMap = Map.ofEntries(
@@ -31,7 +31,6 @@ public class Materials{
     entry("sandstone", Blocks.SANDSTONE),
     entry("stone", Blocks.STONE),
     entry("deepslate", Blocks.DEEPSLATE),
-    entry("calcite", Blocks.CALCITE),
     entry("tuff", Blocks.TUFF),
     entry("dripstone", Blocks.DRIPSTONE_BLOCK),
     entry("blackstone", Blocks.BLACKSTONE),

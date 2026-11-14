@@ -1,6 +1,0 @@
-{
-  "parent": "polychrome:block/persian_pilaster_capital",
-  "textures": {
-    "side": "polychrome:block/calcite/persian_capital"
-  }
-}

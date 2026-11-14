@@ -1,8 +1,0 @@
-{
-  "parent": "polychrome:block/persian_column_volute",
-  "textures": {
-    "end": "polychrome:block/calcite/column_top",
-    "layer0": "polychrome:block/calcite/volute",
-    "side": "polychrome:block/calcite/column_fluting"
-  }
-}

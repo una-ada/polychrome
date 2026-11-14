@@ -1,6 +1,0 @@
-{
-  "parent": "polychrome:block/persian_merlon_deco_corner",
-  "textures": {
-    "side": "polychrome:block/calcite/persian_merlon_deco"
-  }
-}

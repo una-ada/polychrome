@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "polychrome:block/deepslate_persian_pilaster_capital",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "polychrome:block/deepslate_persian_pilaster_capital"
+    },
+    "facing=south": {
+      "model": "polychrome:block/deepslate_persian_pilaster_capital",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "polychrome:block/deepslate_persian_pilaster_capital",
+      "y": 270
+    }
+  }
+}

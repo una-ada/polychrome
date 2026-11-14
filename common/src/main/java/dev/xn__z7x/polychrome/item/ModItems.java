@@ -16,7 +16,7 @@ public class ModItems{
   public static void initialize(BalmCreativeModeTabRegistrar creativeModeTabs){
     creativeModeTabs.register(Polychrome.MOD_ID, builder ->
       builder.title(Component.translatable(id(Polychrome.MOD_ID).toLanguageKey("itemGroup")))
-        .icon(() -> PolychromeBlocks.persianVolutes.get("quartz").createStack())
+        .icon(() -> PolychromeBlocks.persianColumnVolutes.get("quartz").createStack())
         .displayItems((displayParameters, output) -> {
           for(var blocks : PolychromeBlocks.blocks){
             blocks.forEachBlock(block -> output.accept(block));

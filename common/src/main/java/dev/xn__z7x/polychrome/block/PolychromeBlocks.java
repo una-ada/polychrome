@@ -25,8 +25,10 @@ public class PolychromeBlocks{
     PERSIAN_MERLON_DECO_STRAIGHT = BlockModel.block("block/persian_merlon_deco_straight", TextureSlot.SIDE),
     PERSIAN_MERLON_DECO_CORNER = BlockModel.block("block/persian_merlon_deco_corner", "_corner", TextureSlot.SIDE),
     PERSIAN_BRACKET_BULL = BlockModel.block("block/persian_bracket_bull", TextureSlot.SIDE),
-    PERSIAN_VOLUTE = BlockModel.block("block/persian_column_volute", TextureSlot.SIDE, TextureSlot.END, TextureSlot.LAYER0),
-    PERSIAN_CAPITAL = BlockModel.block("block/persian_column_capital", TextureSlot.SIDE);
+    PERSIAN_COLUMN_VOLUTE = BlockModel.block("block/persian_column_volute", TextureSlot.SIDE, TextureSlot.END, TextureSlot.LAYER0),
+    PERSIAN_PILASTER_VOLUTE = BlockModel.block("block/persian_pilaster_volute", TextureSlot.SIDE, TextureSlot.END, TextureSlot.LAYER0),
+    PERSIAN_COLUMN_CAPITAL = BlockModel.block("block/persian_column_capital", TextureSlot.SIDE),
+    PERSIAN_PILASTER_CAPITAL = BlockModel.block("block/persian_pilaster_capital", TextureSlot.SIDE);
 
   public static final Map<String, ModelTemplate>
     SIMPLE_MOULDING = Map.of(
@@ -55,7 +57,7 @@ public class PolychromeBlocks{
         box(4.0, 13.0, -3.0, 12.0, 14.0, -1.0)
       )
     )),
-    PersianVolute = properties -> new BasicBlock(properties, VoxelShapeUtils.combine(
+    PersianColumnVolute = properties -> new BasicBlock(properties, VoxelShapeUtils.combine(
       box(3, -8, 3, 13, -6, 13),
       box(3, 14, 3, 13, 16, 13),
       box(3, -6, 2, 13, 0, 3),
@@ -67,7 +69,19 @@ public class PolychromeBlocks{
       box(2, 0, 3, 3, 14, 13),
       box(3, 0, 13, 13, 14, 14)
     )),
-    PersianCapital = properties -> new BasicBlock(properties, VoxelShapeUtils.combine(
+    PersianPilasterVolute = properties -> new XZRotatingBlock(properties, VoxelShapeUtils.horizontal(
+      VoxelShapeUtils.combine(
+        Block.box(3, -8, 0, 13, 0, 5),
+        Block.box(3, 0, 0, 13, 16, 5),
+        Block.box(3, -6, 5, 13, 0, 6),
+        Block.box(3, 0, 5, 13, 14, 6),
+        Block.box(13, -6, 0, 14, 0, 5),
+        Block.box(13, 0, 0, 14, 14, 5),
+        Block.box(2, -6, 0, 3, 0, 5),
+        Block.box(2, 0, 0, 3, 14, 5)
+      )
+    )),
+    PersianColumnCapital = properties -> new BasicBlock(properties, VoxelShapeUtils.combine(
       Block.box(2, 0, 2, 14, 2, 14),
       Block.box(5, 2, 13, 11, 9, 16),
       Block.box(5, 9, 13, 11, 11, 15),
@@ -117,6 +131,36 @@ public class PolychromeBlocks{
       Block.box(13, 22, 6, 16, 23, 10),
       Block.box(3, 23, 3, 13, 24, 13)
     )),
+    PersianPilasterCapital = properties -> new XZRotatingBlock(properties, VoxelShapeUtils.horizontal(
+      VoxelShapeUtils.combine(
+        Block.box(13, 2, 0, 16, 9, 3),
+        Block.box(13, 9, 0, 15, 11, 3),
+        Block.box(5, 2, 5, 11, 9, 8),
+        Block.box(5, 9, 5, 11, 11, 7),
+        Block.box(0, 2, 0, 3, 9, 3),
+        Block.box(1, 9, 0, 3, 11, 3),
+        Block.box(2, 12, 0, 14, 13, 4),
+        Block.box(3, 12, 4, 13, 13, 5),
+        Block.box(4, 12, 5, 12, 13, 6),
+        Block.box(3, 11, 0, 13, 12, 5),
+        Block.box(3, 2, 0, 13, 11, 1),
+        Block.box(13, 13, 0, 14, 19, 2),
+        Block.box(13, 19, 0, 15, 20, 2),
+        Block.box(13, 20, 0, 17, 22, 2),
+        Block.box(13, 22, 0, 16, 23, 2),
+        Block.box(6, 13, 5, 10, 19, 6),
+        Block.box(6, 19, 5, 10, 20, 7),
+        Block.box(6, 20, 5, 10, 22, 9),
+        Block.box(6, 22, 5, 10, 23, 8),
+        Block.box(2, 13, 0, 3, 19, 2),
+        Block.box(1, 19, 0, 3, 20, 2),
+        Block.box(-1, 20, 0, 3, 22, 2),
+        Block.box(0, 22, 0, 3, 23, 2),
+        Block.box(3, 23, 0, 13, 24, 5),
+        Block.box(2, 0, 0, 14, 2, 6),
+        Block.box(3, 13, 0, 13, 23, 1)
+      )
+    )),
     PersianMerlonDeco = properties -> new XZWrappingBlock(properties, VoxelShapeUtils.connecting(
       VoxelShapeUtils.combine(
         box(5, 11, 6, 11, 18, 10),
@@ -161,13 +205,19 @@ public class PolychromeBlocks{
     persianBracketsBull = new BlockModel("persian_bracket_bull", "Persian Bracket (Bull)", PersianBracket, STONES)
       .withModel(PERSIAN_BRACKET_BULL)
       .withState("horizontal"),
-    persianVolutes = new BlockModel("persian_column_volute", "Persian Column Volute", PersianVolute, STONES)
-      .withModel(PERSIAN_VOLUTE, material -> Map.of(
+    persianColumnVolutes = new BlockModel("persian_column_volute", "Persian Column Volute", PersianColumnVolute, STONES)
+      .withModel(PERSIAN_COLUMN_VOLUTE, material -> Map.of(
         TextureSlot.SIDE,   Polychrome.id("block/" + material + "/column_fluting"),
         TextureSlot.END,    Polychrome.id("block/" + material + "/column_top"),
         TextureSlot.LAYER0, Polychrome.id("block/" + material + "/volute"))),
-    persianCapitals = new BlockModel("persian_column_capital", "Persian Column Capital", PersianCapital, STONES)
-      .withModel(PERSIAN_CAPITAL, BlockModel.defaultMappingFunction("persian_capital")),
+    persianPilasterVolutes = new BlockModel("persian_pilaster_volute", "Persian Pilaster Volute", PersianPilasterVolute, STONES)
+      .withModel(PERSIAN_PILASTER_VOLUTE, persianColumnVolutes.mappingFunction)
+      .withState("horizontal"),
+    persianColumnCapitals = new BlockModel("persian_column_capital", "Persian Column Capital", PersianColumnCapital, STONES)
+      .withModel(PERSIAN_COLUMN_CAPITAL, BlockModel.defaultMappingFunction("persian_capital")),
+    persianPilasterCapitals = new BlockModel("persian_pilaster_capital", "Persian Pilaster Capital", PersianPilasterCapital, STONES)
+      .withModel(PERSIAN_PILASTER_CAPITAL, persianColumnCapitals.mappingFunction)
+      .withState("horizontal"),
     persianReliefLions = new BlockModel("persian_relief_lion", "Persian Relief Lion", SimpleMoulding, STONES)
       .withModel(SIMPLE_MOULDING, material -> Map.of(
         TextureSlot.SIDE, Polychrome.id("block/" + material + "/persian_relief_lion"),
@@ -182,8 +232,10 @@ public class PolychromeBlocks{
     persianMerlonsDeco,
     persianReliefLions,
     persianBracketsBull,
-    persianVolutes,
-    persianCapitals
+    persianColumnVolutes,
+    persianColumnCapitals,
+    persianPilasterVolutes,
+    persianPilasterCapitals
   };
 
   public static void initialize(BalmBlockRegistrar regis){

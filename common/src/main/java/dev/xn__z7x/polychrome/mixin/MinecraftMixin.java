@@ -12,6 +12,6 @@ public class MinecraftMixin{
 
   @Inject(at = @At("TAIL"), method = "<init>")
   private void init(CallbackInfo info){
-    Polychrome.logger.info("Hello from " + Polychrome.MOD_ID);
+    Polychrome.logger.info("Honestly, I didn't think I'd make it this far.");
   }
 }

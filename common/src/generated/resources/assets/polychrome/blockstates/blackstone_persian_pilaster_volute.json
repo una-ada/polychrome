@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "polychrome:block/blackstone_persian_pilaster_volute",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "polychrome:block/blackstone_persian_pilaster_volute"
+    },
+    "facing=south": {
+      "model": "polychrome:block/blackstone_persian_pilaster_volute",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "polychrome:block/blackstone_persian_pilaster_volute",
+      "y": 270
+    }
+  }
+}

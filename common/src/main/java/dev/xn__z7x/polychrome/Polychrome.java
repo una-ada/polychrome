@@ -21,11 +21,11 @@ public class Polychrome{
   }
 
   public static PolychromeConfig config(){
-    return Balm.getConfig().getActiveConfig(PolychromeConfig.class);
+    return Balm.config().getActiveConfig(PolychromeConfig.class);
   }
 
   public static void initialize(BalmRegistrars registrars){
-    Balm.getConfig().registerConfig(PolychromeConfig.class);
+    Balm.config().registerConfig(PolychromeConfig.class);
 
     registrars.blocks(PolychromeBlocks::initialize);
     registrars.items(ModItems::initialize);

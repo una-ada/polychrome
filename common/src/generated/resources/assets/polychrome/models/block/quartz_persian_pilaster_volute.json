@@ -1,0 +1,8 @@
+{
+  "parent": "polychrome:block/persian_pilaster_volute",
+  "textures": {
+    "end": "polychrome:block/quartz/column_top",
+    "layer0": "polychrome:block/quartz/volute",
+    "side": "polychrome:block/quartz/column_fluting"
+  }
+}

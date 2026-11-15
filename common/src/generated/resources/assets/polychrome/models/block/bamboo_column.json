@@ -1,7 +1,0 @@
-{
-  "parent": "polychrome:block/column",
-  "textures": {
-    "end": "polychrome:block/bamboo/column_top",
-    "side": "polychrome:block/bamboo/column"
-  }
-}

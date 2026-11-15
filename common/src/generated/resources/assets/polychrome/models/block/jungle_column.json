@@ -1,7 +1,0 @@
-{
-  "parent": "polychrome:block/column",
-  "textures": {
-    "end": "polychrome:block/jungle/column_top",
-    "side": "polychrome:block/jungle/column"
-  }
-}

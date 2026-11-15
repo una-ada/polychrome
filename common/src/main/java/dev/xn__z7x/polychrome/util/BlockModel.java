@@ -4,7 +4,9 @@ import dev.xn__z7x.polychrome.Polychrome;
 import net.blay09.mods.balm.world.level.block.BalmBlockRegistrar;
 import net.blay09.mods.balm.world.level.block.BalmBlockRegistration;
 import net.blay09.mods.balm.world.level.block.DeferredBlock;
+import net.minecraft.data.models.blockstates.BlockStateGenerator;
 import net.minecraft.data.models.model.ModelTemplate;
+import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.data.models.model.TextureSlot;
 import net.minecraft.resources.ResourceLocation;
@@ -16,6 +18,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
@@ -32,13 +35,12 @@ public class BlockModel{
   public Function<BlockBehaviour.Properties, BlockBehaviour.Properties> propertiesBuilder;
   public Map<String, ModelTemplate> models;
   public Function<String, Map<TextureSlot, ResourceLocation>> mappingFunction;
-  public String stateBuilder;
+  public BiFunction<Block, Map<String, ResourceLocation>, BlockStateGenerator> stateBuilder;
   public String[] materials;
   public Map<String, DeferredBlock> deferredBlocks;
 
   public static Function<BlockBehaviour.Properties, BlockBehaviour.Properties> defaultPropertiesBuilder = it -> it;
-  public Map<String, ModelTemplate> defaultModel = new HashMap<>();
-  public static String defaultStateBuilder = "model";
+  public static BiFunction<Block, Map<String, ResourceLocation>, BlockStateGenerator> defaultStateBuilder = BlockStateGenerators.SIMPLE;
   public static Function<String, Map<TextureSlot, ResourceLocation>> defaultMappingFunction(String name){
     return material -> Map.of(TextureSlot.SIDE, Polychrome.id("block/" + material + "/" + name));
   }
@@ -50,11 +52,12 @@ public class BlockModel{
     this.displayName = displayName;
     this.constructor = constructor;
     this.propertiesBuilder = defaultPropertiesBuilder;
-    this.models = defaultModel;
+    this.models = new HashMap<>();
     this.mappingFunction = defaultMappingFunction(name);
     this.stateBuilder = defaultStateBuilder;
     this.materials = Materials.list(materials);
     this.deferredBlocks = new LinkedHashMap<>();
+    this.models.put("base", ModelTemplates.CUBE);
   }
 
   public void init(BalmBlockRegistrar registrar) {
@@ -81,7 +84,7 @@ public class BlockModel{
     this.mappingFunction = mappingFunction;
     return this;
   }
-  public BlockModel withState(String stateBuilder){
+  public BlockModel withState(BiFunction<Block, Map<String, ResourceLocation>, BlockStateGenerator> stateBuilder){
     this.stateBuilder = stateBuilder;
     return this;
   }

@@ -11,9 +11,6 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.HashMap;
 import java.util.Map;
 
-import static dev.xn__z7x.polychrome.util.BlockStateGenerators.CONNECTING;
-import static dev.xn__z7x.polychrome.util.BlockStateGenerators.CONNECTING_S;
-
 public class ModModelProvider extends FabricModelProvider{
   public ModModelProvider(FabricDataOutput output){
     super(output);
@@ -27,13 +24,7 @@ public class ModModelProvider extends FabricModelProvider{
 
         Map<String, ResourceLocation> models = new HashMap<>();
         blocks.models.forEach((state, model) -> models.put(state, model.create(block, mapping, generator.modelOutput)));
-
-        switch(blocks.stateBuilder){
-          case "horizontal" -> generator.createNonTemplateHorizontalBlock(block);
-          case "connector_s" -> generator.blockStateOutput.accept(CONNECTING_S.apply(block, models));
-          case "connector" -> generator.blockStateOutput.accept(CONNECTING.apply(block, models));
-          default -> generator.createNonTemplateModelBlock(block);
-        }
+        generator.blockStateOutput.accept(blocks.stateBuilder.apply(block, models));
       });
     }
   }

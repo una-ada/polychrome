@@ -93,26 +93,4 @@ public final class VoxelShapeUtils{
     return simplify ? combinedShape.optimize() : combinedShape;
   }
 
-  public static Map<Direction, VoxelShape> horizontal(VoxelShape shape){
-    return Map.of(
-      NORTH, shape,
-      EAST, rotate(shape, CLOCKWISE_90),
-      SOUTH, rotate(shape, CLOCKWISE_180),
-      WEST, rotate(shape, COUNTERCLOCKWISE_90)
-    );
-  }
-
-  public static Map<StairsShape, Map<Direction, VoxelShape>> connecting(VoxelShape straight, VoxelShape inner, VoxelShape outer){
-    return Map.of(
-      STRAIGHT, horizontal(straight),
-      INNER_LEFT, horizontal(inner),
-      INNER_RIGHT, horizontal(rotate(inner, CLOCKWISE_90)),
-      OUTER_LEFT, horizontal(outer),
-      OUTER_RIGHT, horizontal(rotate(outer, CLOCKWISE_90))
-    );
-  }
-
-  public static Map<StairsShape, Map<Direction, VoxelShape>> connecting(VoxelShape straight, VoxelShape corner){
-    return connecting(straight, corner, rotate(corner, CLOCKWISE_180));
-  }
 }

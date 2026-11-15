@@ -39,23 +39,21 @@ public class PolychromeBlocks{
 
   public static final Function<BlockBehaviour.Properties, Block>
     Column = properties -> new BasicBlock(properties, box(2.0, 0.0, 2.0, 14.0, 16.0, 14.0)),
-    Pilaster = properties -> new XZRotatingBlock(properties, VoxelShapeUtils.horizontal(box(2, 0, 0, 14, 16, 6))),
-    SimpleMoulding = properties -> new XZWrappingBlock(properties, VoxelShapeUtils.connecting(
+    Pilaster = properties -> new XZRotatingBlock(properties, box(2, 0, 0, 14, 16, 6)),
+    SimpleMoulding = properties -> new XZWrappingBlock(properties,
       box(0, 0, 0, 16, 16, 8),
       VoxelShapeUtils.combine(
         box(0, 0, 8, 8, 16, 16),
         box(0, 0, 0, 16, 16, 8)
       ),
       box(0, 0, 0, 8, 16, 8)
-    )),
-    PersianBracket = properties -> new XZRotatingBlock(properties, VoxelShapeUtils.horizontal(
-      VoxelShapeUtils.combine(
-        box(3.0, 0.0, -8.0, 13.0, 8.0, 10.0),
-        box(4.0, 8.0, -4.0, 12.0, 12.0, 13.0),
-        box(4.0, 12.0, -3.0, 12.0, 13.0, 13.0),
-        box(4.0, 13.0, -1.0, 12.0, 16.0, 14.0),
-        box(4.0, 13.0, -3.0, 12.0, 14.0, -1.0)
-      )
+    ),
+    PersianBracket = properties -> new XZRotatingBlock(properties, VoxelShapeUtils.combine(
+      box(3.0, 0.0, -8.0, 13.0, 8.0, 10.0),
+      box(4.0, 8.0, -4.0, 12.0, 12.0, 13.0),
+      box(4.0, 12.0, -3.0, 12.0, 13.0, 13.0),
+      box(4.0, 13.0, -1.0, 12.0, 16.0, 14.0),
+      box(4.0, 13.0, -3.0, 12.0, 14.0, -1.0)
     )),
     PersianColumnVolute = properties -> new BasicBlock(properties, VoxelShapeUtils.combine(
       box(3, -8, 3, 13, -6, 13),
@@ -69,17 +67,15 @@ public class PolychromeBlocks{
       box(2, 0, 3, 3, 14, 13),
       box(3, 0, 13, 13, 14, 14)
     )),
-    PersianPilasterVolute = properties -> new XZRotatingBlock(properties, VoxelShapeUtils.horizontal(
-      VoxelShapeUtils.combine(
-        Block.box(3, -8, 0, 13, 0, 5),
-        Block.box(3, 0, 0, 13, 16, 5),
-        Block.box(3, -6, 5, 13, 0, 6),
-        Block.box(3, 0, 5, 13, 14, 6),
-        Block.box(13, -6, 0, 14, 0, 5),
-        Block.box(13, 0, 0, 14, 14, 5),
-        Block.box(2, -6, 0, 3, 0, 5),
-        Block.box(2, 0, 0, 3, 14, 5)
-      )
+    PersianPilasterVolute = properties -> new XZRotatingBlock(properties, VoxelShapeUtils.combine(
+      Block.box(3, -8, 0, 13, 0, 5),
+      Block.box(3, 0, 0, 13, 16, 5),
+      Block.box(3, -6, 5, 13, 0, 6),
+      Block.box(3, 0, 5, 13, 14, 6),
+      Block.box(13, -6, 0, 14, 0, 5),
+      Block.box(13, 0, 0, 14, 14, 5),
+      Block.box(2, -6, 0, 3, 0, 5),
+      Block.box(2, 0, 0, 3, 14, 5)
     )),
     PersianColumnCapital = properties -> new BasicBlock(properties, VoxelShapeUtils.combine(
       Block.box(2, 0, 2, 14, 2, 14),
@@ -131,37 +127,35 @@ public class PolychromeBlocks{
       Block.box(13, 22, 6, 16, 23, 10),
       Block.box(3, 23, 3, 13, 24, 13)
     )),
-    PersianPilasterCapital = properties -> new XZRotatingBlock(properties, VoxelShapeUtils.horizontal(
-      VoxelShapeUtils.combine(
-        Block.box(13, 2, 0, 16, 9, 3),
-        Block.box(13, 9, 0, 15, 11, 3),
-        Block.box(5, 2, 5, 11, 9, 8),
-        Block.box(5, 9, 5, 11, 11, 7),
-        Block.box(0, 2, 0, 3, 9, 3),
-        Block.box(1, 9, 0, 3, 11, 3),
-        Block.box(2, 12, 0, 14, 13, 4),
-        Block.box(3, 12, 4, 13, 13, 5),
-        Block.box(4, 12, 5, 12, 13, 6),
-        Block.box(3, 11, 0, 13, 12, 5),
-        Block.box(3, 2, 0, 13, 11, 1),
-        Block.box(13, 13, 0, 14, 19, 2),
-        Block.box(13, 19, 0, 15, 20, 2),
-        Block.box(13, 20, 0, 17, 22, 2),
-        Block.box(13, 22, 0, 16, 23, 2),
-        Block.box(6, 13, 5, 10, 19, 6),
-        Block.box(6, 19, 5, 10, 20, 7),
-        Block.box(6, 20, 5, 10, 22, 9),
-        Block.box(6, 22, 5, 10, 23, 8),
-        Block.box(2, 13, 0, 3, 19, 2),
-        Block.box(1, 19, 0, 3, 20, 2),
-        Block.box(-1, 20, 0, 3, 22, 2),
-        Block.box(0, 22, 0, 3, 23, 2),
-        Block.box(3, 23, 0, 13, 24, 5),
-        Block.box(2, 0, 0, 14, 2, 6),
-        Block.box(3, 13, 0, 13, 23, 1)
-      )
+    PersianPilasterCapital = properties -> new XZRotatingBlock(properties, VoxelShapeUtils.combine(
+      Block.box(13, 2, 0, 16, 9, 3),
+      Block.box(13, 9, 0, 15, 11, 3),
+      Block.box(5, 2, 5, 11, 9, 8),
+      Block.box(5, 9, 5, 11, 11, 7),
+      Block.box(0, 2, 0, 3, 9, 3),
+      Block.box(1, 9, 0, 3, 11, 3),
+      Block.box(2, 12, 0, 14, 13, 4),
+      Block.box(3, 12, 4, 13, 13, 5),
+      Block.box(4, 12, 5, 12, 13, 6),
+      Block.box(3, 11, 0, 13, 12, 5),
+      Block.box(3, 2, 0, 13, 11, 1),
+      Block.box(13, 13, 0, 14, 19, 2),
+      Block.box(13, 19, 0, 15, 20, 2),
+      Block.box(13, 20, 0, 17, 22, 2),
+      Block.box(13, 22, 0, 16, 23, 2),
+      Block.box(6, 13, 5, 10, 19, 6),
+      Block.box(6, 19, 5, 10, 20, 7),
+      Block.box(6, 20, 5, 10, 22, 9),
+      Block.box(6, 22, 5, 10, 23, 8),
+      Block.box(2, 13, 0, 3, 19, 2),
+      Block.box(1, 19, 0, 3, 20, 2),
+      Block.box(-1, 20, 0, 3, 22, 2),
+      Block.box(0, 22, 0, 3, 23, 2),
+      Block.box(3, 23, 0, 13, 24, 5),
+      Block.box(2, 0, 0, 14, 2, 6),
+      Block.box(3, 13, 0, 13, 23, 1)
     )),
-    PersianMerlonDeco = properties -> new XZWrappingBlock(properties, VoxelShapeUtils.connecting(
+    PersianMerlonDeco = properties -> new XZWrappingBlock(properties,
       VoxelShapeUtils.combine(
         box(5, 11, 6, 11, 18, 10),
         box(0, 0, 6, 16, 4, 10),
@@ -175,7 +169,7 @@ public class PolychromeBlocks{
         box(10, 11, 6, 11, 18, 10),
         box(10, 4, 6, 13, 11, 10)
       )
-    ));
+    );
 
   public static BlockModel
     columns = new BlockModel("column", "Column", Column, STONES, WOODS)

@@ -1,5 +1,6 @@
 package dev.xn__z7x.polychrome.block;
 
+import dev.xn__z7x.polychrome.util.VoxelShapeUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -18,14 +19,29 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 
+import static net.minecraft.core.Direction.*;
+import static net.minecraft.core.Direction.WEST;
+import static net.minecraft.world.level.block.Rotation.*;
+
 public class XZRotatingBlock extends Block {
   public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-
   public Map<Direction, VoxelShape> voxelShapes;
+
+  public static Map<Direction, VoxelShape> generateShapes(VoxelShape shape){
+    return Map.of(
+      NORTH, shape,
+      EAST, VoxelShapeUtils.rotate(shape, CLOCKWISE_90),
+      SOUTH, VoxelShapeUtils.rotate(shape, CLOCKWISE_180),
+      WEST, VoxelShapeUtils.rotate(shape, COUNTERCLOCKWISE_90)
+    );
+  }
 
   public XZRotatingBlock(Properties properties, Map<Direction, VoxelShape> shapes){
     super(properties);
     this.voxelShapes = shapes;
+  }
+  public XZRotatingBlock(Properties properties, VoxelShape shape){
+    this(properties, generateShapes(shape));
   }
 
   @Override

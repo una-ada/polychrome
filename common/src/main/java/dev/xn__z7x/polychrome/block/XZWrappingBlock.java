@@ -1,5 +1,6 @@
 package dev.xn__z7x.polychrome.block;
 
+import dev.xn__z7x.polychrome.util.VoxelShapeUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -22,19 +23,42 @@ import org.jetbrains.annotations.Nullable;
 import java.util.HashMap;
 import java.util.Map;
 
+import static net.minecraft.world.level.block.Rotation.CLOCKWISE_180;
+import static net.minecraft.world.level.block.Rotation.CLOCKWISE_90;
+import static net.minecraft.world.level.block.state.properties.StairsShape.*;
+
 public class XZWrappingBlock extends Block{
   // public static final MapCodec<XZConnectingBlock> CODEC = simpleCodec(XZConnectingBlock::new);
   public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
   public static final EnumProperty<StairsShape> SHAPE = BlockStateProperties.STAIRS_SHAPE;
-  public Map<StairsShape, Map<Direction, VoxelShape>> VOXEL_SHAPES;
+  public Map<StairsShape, Map<Direction, VoxelShape>> voxelShapes;
 
-  protected XZWrappingBlock(Properties properties, Map<StairsShape, Map<Direction, VoxelShape>> voxelShapes) {
+  public static Map<StairsShape, Map<Direction, VoxelShape>> generateShapes(VoxelShape straight, VoxelShape inner, VoxelShape outer){
+    return Map.of(
+      STRAIGHT, XZRotatingBlock.generateShapes(straight),
+      INNER_LEFT, XZRotatingBlock.generateShapes(inner),
+      INNER_RIGHT, XZRotatingBlock.generateShapes(VoxelShapeUtils.rotate(inner, CLOCKWISE_90)),
+      OUTER_LEFT, XZRotatingBlock.generateShapes(outer),
+      OUTER_RIGHT, XZRotatingBlock.generateShapes(VoxelShapeUtils.rotate(outer, CLOCKWISE_90))
+    );
+  }
+  public static Map<StairsShape, Map<Direction, VoxelShape>> generateShapes(VoxelShape straight, VoxelShape corner){
+    return generateShapes(straight, corner, VoxelShapeUtils.rotate(corner, CLOCKWISE_180));
+  }
+
+  public XZWrappingBlock(Properties properties, Map<StairsShape, Map<Direction, VoxelShape>> shapes) {
     super(properties);
-    this.VOXEL_SHAPES = voxelShapes;
+    this.voxelShapes = shapes;
     this.registerDefaultState(this.getStateDefinition().any()
       .setValue(FACING, Direction.NORTH)
       .setValue(SHAPE, StairsShape.STRAIGHT)
     );
+  }
+  public XZWrappingBlock(Properties properties, VoxelShape straight, VoxelShape inner, VoxelShape outer){
+    this(properties, generateShapes(straight, inner, outer));
+  }
+  public XZWrappingBlock(Properties properties, VoxelShape straight, VoxelShape corner){
+    this(properties, generateShapes(straight, corner));
   }
 
   @Override
@@ -44,7 +68,7 @@ public class XZWrappingBlock extends Block{
 
   @Override
   protected @NotNull VoxelShape getShape(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context){
-    return VOXEL_SHAPES.get(state.getValue(SHAPE)).get(state.getValue(FACING));
+    return voxelShapes.get(state.getValue(SHAPE)).get(state.getValue(FACING));
   }
 
   @Override

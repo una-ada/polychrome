@@ -1,5 +1,6 @@
 package dev.xn__z7x.polychrome.block;
 
+import dev.xn__z7x.polychrome.util.VoxelShapeUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -22,6 +23,13 @@ public class XZRotatingXHalfBlock extends Block{
   public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
   public static final EnumProperty<DoorHingeSide> HINGE = BlockStateProperties.DOOR_HINGE;
   public Map<DoorHingeSide, Map<Direction, VoxelShape>> voxelShapes;
+
+  public static Map<DoorHingeSide, Map<Direction, VoxelShape>> generateShapes(VoxelShape shape){
+    return Map.of(
+      DoorHingeSide.LEFT, XZRotatingBlock.generateShapes(shape),
+      DoorHingeSide.RIGHT, XZRotatingBlock.generateShapes(VoxelShapeUtils.mirror(shape, Direction.Axis.X))
+    );
+  }
 
   public XZRotatingXHalfBlock(Properties properties, Map<DoorHingeSide, Map<Direction, VoxelShape>> shapes){
     super(properties);

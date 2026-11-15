@@ -2,7 +2,6 @@ package dev.xn__z7x.polychrome.util;
 
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.BooleanOp;
@@ -12,32 +11,10 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
-import java.util.function.BiFunction;
-
-import static net.minecraft.core.Direction.*;
-import static net.minecraft.world.level.block.Rotation.*;
-import static net.minecraft.world.level.block.state.properties.StairsShape.*;
 
 public final class VoxelShapeUtils{
 
   private static final Vec3 fromOrigin = new Vec3(-0.5, -0.5, -0.5);
-
-  public static AABB rotate(AABB box, Direction side){
-    return switch(side){
-      case DOWN -> box;
-      case UP ->
-        new AABB(box.minX, -box.minY, -box.minZ, box.maxX, -box.maxY, -box.maxZ);
-      case NORTH ->
-        new AABB(box.minX, -box.minZ, box.minY, box.maxX, -box.maxZ, box.maxY);
-      case SOUTH ->
-        new AABB(-box.minX, -box.minZ, -box.minY, -box.maxX, -box.maxZ, -box.maxY);
-      case WEST ->
-        new AABB(box.minY, -box.minZ, -box.minX, box.maxY, -box.maxZ, -box.maxX);
-      case EAST ->
-        new AABB(-box.minY, -box.minZ, box.minX, -box.maxY, -box.maxZ, box.maxX);
-    };
-  }
 
   public static AABB rotate(AABB box, Rotation rotation){
     return switch(rotation){
@@ -51,22 +28,30 @@ public final class VoxelShapeUtils{
     };
   }
 
-  public static VoxelShape rotate(VoxelShape shape, Direction side){
-    return rotate(shape, side, VoxelShapeUtils::rotate);
-  }
-
   public static VoxelShape rotate(VoxelShape shape, Rotation rotation){
-    return rotate(shape, rotation, VoxelShapeUtils::rotate);
+    List<VoxelShape> rotatedPieces = new ArrayList<>();
+    for(AABB box : shape.toAabbs())
+      rotatedPieces.add(Shapes.create(rotate(box.move(fromOrigin.x, fromOrigin.y, fromOrigin.z), rotation)
+        .move(-fromOrigin.x, -fromOrigin.z, -fromOrigin.z)));
+    return combine(rotatedPieces);
   }
 
-  public static <DATA> VoxelShape rotate(VoxelShape shape, DATA data, BiFunction<AABB, DATA, AABB> rotateFunction){
-    List<VoxelShape> rotatedPieces = new ArrayList<>();
-    List<AABB> sourceBoundingBoxes = shape.toAabbs();
-    for(AABB sourceBoundingBox : sourceBoundingBoxes){
-      rotatedPieces.add(Shapes.create(rotateFunction.apply(sourceBoundingBox.move(fromOrigin.x, fromOrigin.y, fromOrigin.z), data)
-        .move(-fromOrigin.x, -fromOrigin.z, -fromOrigin.z)));
-    }
-    return combine(rotatedPieces);
+  public static AABB mirror(AABB box, Direction.Axis axis){
+    return switch(axis){
+      case X ->
+        new AABB(1.0 - box.maxX, box.minY, box.minZ, 1.0 - box.minX, box.maxY, box.maxZ);
+      case Y ->
+        new AABB(box.minX, 1.0 - box.maxY, box.minZ, box.maxX, 1.0 - box.minY, box.maxZ);
+      case Z ->
+        new AABB(box.minX, box.minY, 1.0 - box.maxZ, box.maxX, box.maxY, 1.0 - box.minZ);
+    };
+  }
+
+  public static VoxelShape mirror(VoxelShape shape, Direction.Axis axis){
+    List<VoxelShape> mirroredPieces = new ArrayList<>();
+    for(AABB box : shape.toAabbs())
+      mirroredPieces.add(Shapes.create(mirror(box, axis)));
+    return combine(mirroredPieces);
   }
 
   public static VoxelShape combine(VoxelShape... shapes){

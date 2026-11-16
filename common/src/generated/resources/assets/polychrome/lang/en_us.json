@@ -86,5 +86,7 @@
   "block.polychrome.tuff_persian_pilaster_volute": "Tuff Persian Pilaster Volute",
   "block.polychrome.tuff_persian_relief_lion": "Tuff Persian Relief Lion",
   "block.polychrome.tuff_pilaster": "Tuff Pilaster",
+  "item.polychrome.music_disc_displacement": "Music Disc",
+  "item.polychrome.music_disc_displacement.desc": "джісаツ - A Constant State of Displacement",
   "itemGroup.polychrome.polychrome": "Polychrome"
 }

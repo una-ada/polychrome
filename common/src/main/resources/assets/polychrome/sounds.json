@@ -1,0 +1,11 @@
+{
+  "music_disc_displacement": {
+    "subtitle": "sounds.polychrome.music_disc_displacement",
+    "sounds": [
+      {
+        "name": "polychrome:music_disc_displacement",
+        "stream": true
+      }
+    ]
+  }
+}

@@ -1,10 +1,12 @@
 package dev.xn__z7x.polychrome.fabric.datagen;
 
 import dev.xn__z7x.polychrome.block.PolychromeBlocks;
+import dev.xn__z7x.polychrome.item.PolychromeItems;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
+import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.resources.ResourceLocation;
 
@@ -31,6 +33,6 @@ public class ModModelProvider extends FabricModelProvider{
 
   @Override
   public void generateItemModels(ItemModelGenerators generator){
-
+    generator.generateFlatItem(PolychromeItems.stateOfDisplacement.asItem(), ModelTemplates.FLAT_ITEM);
   }
 }

@@ -101,46 +101,19 @@ public class PolychromeBlocks{
       .withModel(BlockModel.block("block/persian_pilaster_volute", TextureSlot.SIDE, TextureSlot.END, TextureSlot.LAYER0), persianColumnVolutes.mappingFunction)
       .withState(BlockStateGenerators.XZ_ROTATING),
     persianColumnCapitals = new BlockModel("persian_column_capital", "Persian Column Capital", properties -> new BasicBlock(properties, VoxelShapeUtils.combine(
-      Block.box(2, 0, 2, 14, 2, 14),    Block.box(5, 2, 13, 11, 9, 16),
-      Block.box(5, 9, 13, 11, 11, 15),  Block.box(0, 2, 5, 3, 9, 11),
-      Block.box(1, 9, 5, 3, 11, 11),    Block.box(5, 2, 0, 11, 9, 3),
-      Block.box(5, 9, 1, 11, 11, 3),    Block.box(13, 2, 5, 16, 9, 11),
-      Block.box(13, 9, 5, 15, 11, 11),  Block.box(4, 12, 13, 12, 13, 14),
-      Block.box(3, 12, 12, 13, 13, 13), Block.box(2, 12, 4, 14, 13, 12),
-      Block.box(3, 12, 3, 13, 13, 4),   Block.box(4, 12, 2, 12, 13, 3),
-      Block.box(3, 11, 3, 13, 12, 13),  Block.box(6, 13, 13, 10, 19, 14),
-      Block.box(6, 19, 13, 10, 20, 15), Block.box(6, 20, 13, 10, 22, 17),
-      Block.box(6, 22, 13, 10, 23, 16), Block.box(6, 13, 13, 10, 19, 14),
-      Block.box(6, 19, 13, 10, 20, 15), Block.box(6, 20, 13, 10, 22, 17),
-      Block.box(6, 22, 13, 10, 23, 16), Block.box(2, 13, 6, 3, 19, 10),
-      Block.box(1, 19, 6, 3, 20, 10),   Block.box(-1, 20, 6, 3, 22, 10),
-      Block.box(0, 22, 6, 3, 23, 10),   Block.box(2, 13, 6, 3, 19, 10),
-      Block.box(1, 19, 6, 3, 20, 10),   Block.box(-1, 20, 6, 3, 22, 10),
-      Block.box(0, 22, 6, 3, 23, 10),   Block.box(6, 13, 2, 10, 19, 3),
-      Block.box(6, 19, 1, 10, 20, 3),   Block.box(6, 20, -1, 10, 22, 3),
-      Block.box(6, 22, 0, 10, 23, 3),   Block.box(6, 13, 2, 10, 19, 3),
-      Block.box(6, 19, 1, 10, 20, 3),   Block.box(6, 20, -1, 10, 22, 3),
-      Block.box(6, 22, 0, 10, 23, 3),   Block.box(13, 13, 6, 14, 19, 10),
-      Block.box(13, 19, 6, 15, 20, 10), Block.box(13, 20, 6, 17, 22, 10),
-      Block.box(13, 22, 6, 16, 23, 10), Block.box(13, 13, 6, 14, 19, 10),
-      Block.box(13, 19, 6, 15, 20, 10), Block.box(13, 20, 6, 17, 22, 10),
-      Block.box(13, 22, 6, 16, 23, 10), Block.box(3, 23, 3, 13, 24, 13)
+      Block.box(2, 11, 2, 14, 12, 14),  Block.box(3, 23, 3, 13, 24, 13),
+      Block.box(3, 0, 3, 13, 1, 13),    Block.box(2, 19, 2, 14, 20, 14),
+      Block.box(3, 12, 3, 13, 19, 13),  Block.box(0, 20, 0, 16, 23, 16),
+      Block.box(1, 1, 1, 15, 9, 15),    Block.box(2, 9, 2, 14, 10, 14),
+      Block.box(3, 10, 3, 13, 11, 13)
     )), STONES)
       .withModel(BlockModel.block("block/persian_column_capital", TextureSlot.SIDE), BlockModel.defaultMappingFunction("persian_capital")),
     persianPilasterCapitals = new BlockModel("persian_pilaster_capital", "Persian Pilaster Capital", properties -> new XZRotatingBlock(properties, VoxelShapeUtils.combine(
-      Block.box(13, 2, 0, 16, 9, 3),    Block.box(13, 9, 0, 15, 11, 3),
-      Block.box(5, 2, 5, 11, 9, 8),     Block.box(5, 9, 5, 11, 11, 7),
-      Block.box(0, 2, 0, 3, 9, 3),      Block.box(1, 9, 0, 3, 11, 3),
-      Block.box(2, 12, 0, 14, 13, 4),   Block.box(3, 12, 4, 13, 13, 5),
-      Block.box(4, 12, 5, 12, 13, 6),   Block.box(3, 11, 0, 13, 12, 5),
-      Block.box(3, 2, 0, 13, 11, 1),    Block.box(13, 13, 0, 14, 19, 2),
-      Block.box(13, 19, 0, 15, 20, 2),  Block.box(13, 20, 0, 17, 22, 2),
-      Block.box(13, 22, 0, 16, 23, 2),  Block.box(6, 13, 5, 10, 19, 6),
-      Block.box(6, 19, 5, 10, 20, 7),   Block.box(6, 20, 5, 10, 22, 9),
-      Block.box(6, 22, 5, 10, 23, 8),   Block.box(2, 13, 0, 3, 19, 2),
-      Block.box(1, 19, 0, 3, 20, 2),    Block.box(-1, 20, 0, 3, 22, 2),
-      Block.box(0, 22, 0, 3, 23, 2),    Block.box(3, 23, 0, 13, 24, 5),
-      Block.box(2, 0, 0, 14, 2, 6),     Block.box(3, 13, 0, 13, 23, 1)
+      Block.box(2, 11, 0, 14, 12, 6),   Block.box(3, 23, 0, 13, 24, 5),
+      Block.box(2, 19, 0, 14, 20, 6),   Block.box(3, 12, 0, 13, 19, 5),
+      Block.box(0, 20, 0, 16, 23, 8),   Block.box(3, 0, 0, 13, 1, 5),
+      Block.box(2, 9, 0, 14, 10, 6),    Block.box(1, 1, 0, 15, 9, 7),
+      Block.box(3, 10, 0, 13, 11, 5)
     )), STONES)
       .withModel(BlockModel.block("block/persian_pilaster_capital", TextureSlot.SIDE), persianColumnCapitals.mappingFunction)
       .withState(BlockStateGenerators.XZ_ROTATING),

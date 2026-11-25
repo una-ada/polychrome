@@ -1,5 +1,6 @@
 {
 	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
 	"parent": "minecraft:block/block",
 	"ambientocclusion": false,
 	"textures": {
@@ -18,5 +19,12 @@
 				"down": {"uv": [0, 8, 16, 16], "texture": "#end"}
 			}
 		}
-	]
+	],
+	"display": {
+		"gui": {
+			"rotation": [30, 45, 0],
+			"translation": [1.75, -1, 0],
+			"scale": [0.625, 0.625, 0.625]
+		}
+	}
 }
